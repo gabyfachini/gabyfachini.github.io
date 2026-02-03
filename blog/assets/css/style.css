@@ -92,3 +92,51 @@ body {
   padding: 40px 10px;
   color: #777;
 }
+
+/* BOTÃO */
+#themeToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+}
+
+#themeToggle img {
+  width: 34px;
+  height: 34px;
+}
+
+/* CORES CLARAS (já existentes) */
+:root {
+  --bg: #f7f5f2;
+  --text: #222;
+  --muted: #777;
+  --card: #ffffff;
+}
+
+/* DARK MODE */
+.dark {
+  --bg: #181818;
+  --text: #eaeaea;
+  --muted: #999;
+  --card: #222;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.footer,
+.date,
+.tagline {
+  color: var(--muted);
+}
+
+.card,
+.hero-text {
+  background: transparent;
+}
