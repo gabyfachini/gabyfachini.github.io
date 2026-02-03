@@ -140,3 +140,122 @@ body {
 
 /* Note: Body, Footer, Date, and Tagline properties are already 
    linked to variables above to ensure dynamic updates. */
+
+   /* --- About Page Specific Styles --- */
+
+.about-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Header Layout */
+.about-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.about-hero-img {
+  flex: 1.2;
+}
+
+.about-hero-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-brand {
+  flex: 1;
+  padding-top: 20px;
+}
+
+.about-brand h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  letter-spacing: 8px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.brand-line {
+  border: none;
+  border-top: 1.5px solid var(--text);
+  margin: 20px 0;
+  width: 100%;
+}
+
+/* Main Content Layout */
+.about-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr; /* Coluna de texto maior que a da imagem lateral */
+  gap: 60px;
+}
+
+.main-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+}
+
+.about-content h3 {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  margin-top: 30px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.about-content p, .why-list li {
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+.why-list {
+  padding-left: 20px;
+}
+
+.why-list li {
+  margin-bottom: 15px;
+}
+
+.side-img {
+  width: 100%;
+  margin-top: 40px; /* Alinha a imagem lateral mais para baixo como no modelo */
+}
+
+/* Responsividade para Celular */
+@media (max-width: 768px) {
+  .about-header, .about-content {
+    display: block;
+  }
+  .about-brand h1 {
+    font-size: 1.8rem;
+    margin-top: 20px;
+  }
+  .side-img {
+    display: none; /* Esconde a imagem lateral no celular para focar no texto */
+  }
+}
+
+/* --- Grayscale Image Effect --- */
+
+/* Aplica o efeito de preto e branco em todas as imagens do site */
+img {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease; /* Suaviza a transição caso queira remover o efeito no hover */
+}
+
+/* Opcional: Faz a imagem voltar a ter cor quando você passa o mouse por cima */
+img:hover {
+  filter: grayscale(0%);
+}
+
+/* Ajuste específico para garantir que as imagens da página About sigam o modelo */
+.about-page img {
+  filter: grayscale(100%);
+  display: block;
+}
