@@ -1,10 +1,14 @@
+/* --- Global Reset & Base Styles --- */
 body {
   margin: 0;
-  background: #f7f5f2;
-  color: #222;
+  /* Applying CSS variables for theme switching */
+  background: var(--bg);
+  color: var(--text);
   font-family: 'Inter', sans-serif;
+  transition: background 0.3s, color 0.3s; /* Smooth transition when toggling themes */
 }
 
+/* --- Header & Navigation --- */
 .site-header {
   text-align: center;
   padding: 40px 20px 10px;
@@ -26,19 +30,23 @@ body {
 .menu a {
   margin: 0 16px;
   text-decoration: none;
-  color: #444;
+  /* Inherits text color variable */
+  color: var(--text);
   font-size: 0.75rem;
   letter-spacing: 2px;
 }
 
+/* --- Layout Container --- */
 .container {
   max-width: 1100px;
   margin: auto;
   padding: 40px 20px;
 }
 
+/* --- Hero Section (Featured Post) --- */
 .hero {
   display: grid;
+  /* Creates a 2-column layout for desktop */
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   margin-bottom: 80px;
@@ -56,18 +64,20 @@ body {
 
 .tagline {
   font-style: italic;
-  color: #777;
+  color: var(--muted);
 }
 
 .read-more {
   display: inline-block;
   margin-top: 16px;
   text-decoration: underline;
-  color: #000;
+  color: var(--text);
 }
 
+/* --- Post Grid Section --- */
 .grid {
   display: grid;
+  /* Creates a responsive grid with 2 equal columns */
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
 }
@@ -83,25 +93,26 @@ body {
 
 .date {
   font-size: 0.75rem;
-  color: #888;
+  color: var(--muted);
 }
 
+/* --- Footer --- */
 .footer {
   text-align: center;
   font-size: 0.7rem;
   padding: 40px 10px;
-  color: #777;
+  color: var(--muted);
 }
 
-/* BOTÃO */
+/* --- Theme Toggle Button --- */
 #themeToggle {
-  position: fixed;
+  position: fixed; /* Keeps button in the same spot while scrolling */
   top: 20px;
   right: 20px;
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 999;
+  z-index: 999; /* Ensures button stays on top of other elements */
 }
 
 #themeToggle img {
@@ -109,7 +120,9 @@ body {
   height: 34px;
 }
 
-/* CORES CLARAS (já existentes) */
+/* --- Theme Color Definitions --- */
+
+/* Light Mode Variables (Default) */
 :root {
   --bg: #f7f5f2;
   --text: #222;
@@ -117,7 +130,7 @@ body {
   --card: #ffffff;
 }
 
-/* DARK MODE */
+/* Dark Mode Variables (Activated via JavaScript class) */
 .dark {
   --bg: #181818;
   --text: #eaeaea;
@@ -125,18 +138,5 @@ body {
   --card: #222;
 }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-}
-
-.footer,
-.date,
-.tagline {
-  color: var(--muted);
-}
-
-.card,
-.hero-text {
-  background: transparent;
-}
+/* Note: Body, Footer, Date, and Tagline properties are already 
+   linked to variables above to ensure dynamic updates. */

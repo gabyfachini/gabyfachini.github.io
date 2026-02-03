@@ -1,26 +1,40 @@
 ---
-layout: default
-title: Home
+# Configurações de Front Matter (metadados da página)
+layout: default   # Define que esta página usará o modelo "default.html" da pasta _layouts
+title: Home       # Título da página
 ---
 
+{% comment %} 
+  Cria uma variável chamada 'hero' que armazena o post mais recente (índice 0).
+  Isso facilita o acesso aos dados sem repetir 'site.posts[0]' várias vezes.
+{% endcomment %}
 {% assign hero = site.posts[0] %}
 
 <section class="hero">
   <img src="{{ hero.image }}" alt="{{ hero.title }}">
+  
   <div class="hero-text">
     <h2>{{ hero.title }}</h2>
     <p class="tagline">{{ hero.subtitle }}</p>
     <p>{{ hero.excerpt }}</p>
+    
     <a class="read-more" href="{{ hero.url }}">Read More</a>
   </div>
 </section>
 
 <section class="grid">
+  {% comment %} 
+    Loop 'for' que percorre a lista de posts:
+    - offset:1 -> Pula o primeiro post (que já está no destaque acima).
+    - limit:2  -> Pega apenas os 2 posts seguintes.
+  {% endcomment %}
   {% for post in site.posts offset:1 limit:2 %}
   <article class="card">
     <img src="{{ post.image }}" alt="{{ post.title }}">
     <h3>{{ post.title }}</h3>
+    
     <p class="date">{{ post.date | date: "%B %d, %Y" }}</p>
+    
     <p>{{ post.excerpt }}</p>
   </article>
   {% endfor %}
