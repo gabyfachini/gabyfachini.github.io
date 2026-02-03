@@ -1,7 +1,9 @@
 ---
 layout: post
-title: "Meu primeiro post"
+title: "Navigating the Future of Design"
+subtitle: "Ideas & Inspiration"
+image: /assets/img/post1.jpg
 ---
 
-Este é meu primeiro artigo no blog 🎉  
-Agora ele deve aparecer na página inicial.
+Explore emerging trends, tools, and philosophies that are reshaping the creative landscape...
+

@@ -4,23 +4,33 @@
   <meta charset="UTF-8">
   <title>{{ page.title }} | {{ site.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-  <header class="header">
-    <h1><a href="/">{{ site.title }}</a></h1>
-    <nav>
-      <a href="/">Blog</a>
-      <a href="/sobre.html">Sobre</a>
-    </nav>
-  </header>
 
-  <main class="container">
-    {{ content }}
-  </main>
+<header class="site-header">
+  <h1 class="logo">STUDIO SHODWE BLOG</h1>
+  <hr>
+  <nav class="menu">
+    <a href="/">HOME</a>
+    <a href="/sobre.html">ABOUT</a>
+    <a href="/articles.html">ARTICLES</a>
+    <a href="/contato.html">CONTACT</a>
+  </nav>
+</header>
 
-  <footer class="footer">
-    © {{ site.time | date: "%Y" }} {{ site.title }}
-  </footer>
+<main class="container">
+  {{ content }}
+</main>
+
+<footer class="footer">
+  © {{ site.time | date: "%Y" }} STUDIO SHODWE. ALL THE RESERVED.<br>
+  www.reallygreatsite.com/blog
+</footer>
+
 </body>
 </html>
