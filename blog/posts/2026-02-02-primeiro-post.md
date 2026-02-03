@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "Por que criei este blog"
+title: "Meu primeiro post"
 ---
 
-Este é meu espaço para compartilhar aprendizados sobre tecnologia, carreira e organização.
+Este é meu primeiro artigo no blog 🎉  
+Agora ele deve aparecer na página inicial.

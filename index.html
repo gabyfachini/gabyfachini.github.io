@@ -3,11 +3,17 @@ layout: default
 title: Blog
 ---
 
+<h2>Últimos artigos</h2>
+
 <ul class="post-list">
   {% for post in site.posts %}
   <li>
     <a href="{{ post.url }}">{{ post.title }}</a>
-    <span>{{ post.date | date: "%d/%m/%Y" }}</span>
+    <span> — {{ post.date | date: "%d/%m/%Y" }}</span>
   </li>
   {% endfor %}
 </ul>
+
+{% if site.posts.size == 0 %}
+<p>Ainda não há posts publicados.</p>
+{% endif %}
