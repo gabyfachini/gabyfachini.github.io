@@ -18,7 +18,7 @@ title: Home       # Título da página
     <p class="tagline">{{ hero.subtitle }}</p>
     <p>{{ hero.excerpt }}</p>
     
-    <a class="read-more" href="{{ hero.url }}">Read More</a>
+    <a class="read-more" href="{{ hero.url | relative_url }}">Read More</a>
   </div>
 </section>
 

@@ -12,13 +12,16 @@
 <body>
 
 <header class="site-header">
-  <h1 class="logo">STUDIO SHODWE BLOG</h1>
+  <h1 class="logo">Gabryella Fachini Mindsight</h1>
   <hr>
   <nav class="menu">
-    <a href="/">HOME</a>
-    <a href="/sobre.html">ABOUT</a>
-    <a href="/articles.html">ARTICLES</a>
-    <a href="/contato.html">CONTACT</a>
+  <a href="{{ '/' | relative_url }}">HOME</a>
+
+  <a href="{{ '/sobre.html' | relative_url }}">ABOUT</a>
+
+  <a href="{{ '/articles.html' | relative_url }}">ARTICLES</a>
+
+  <a href="{{ '/contato.html' | relative_url }}">CONTACT</a>
   </nav>
 </header>
 
