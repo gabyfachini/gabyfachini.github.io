@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #fff;
+  color: #222;
+  line-height: 1.7;
+}
+
+.header {
+  border-bottom: 1px solid #eee;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header a {
+  text-decoration: none;
+  color: #222;
+  margin-left: 12px;
+}
+
+.container {
+  max-width: 760px;
+  margin: auto;
+  padding: 32px 16px;
+}
+
+.post h1 {
+  font-size: 2.2rem;
+}
+
+.post-list li {
+  list-style: none;
+  margin-bottom: 12px;
+}
+
+.footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 0.9rem;
+  color: #777;
+}
