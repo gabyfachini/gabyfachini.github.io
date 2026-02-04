@@ -1,0 +1,18 @@
+# _data/translations.yml
+menu:
+  home:
+    pt: "INÍCIO"
+    en: "HOME"
+    es: "INICIO"
+  about:
+    pt: "SOBRE"
+    en: "ABOUT"
+    es: "SOBRE"
+  articles:
+    pt: "ARTIGOS"
+    en: "ARTICLES"
+    es: "ARTÍCULOS"
+  contact:
+    pt: "CONTATO"
+    en: "CONTACT"
+    es: "CONTACTO"

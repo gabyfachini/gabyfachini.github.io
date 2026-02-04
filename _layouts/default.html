@@ -11,18 +11,28 @@
 </head>
 <body>
 
+<div class="language-switcher">
+  <a href="/">🇧🇷</a>
+  <a href="/en/">🇺🇸</a>
+  <a href="/es/">es</a>
+</div>
+
+<div class="language-switcher" style="text-align: right; padding: 10px 20px;">
+  <a href="{{ '/' | relative_url }}" style="text-decoration: none; margin-left: 10px;">🇧🇷</a>
+  <a href="{{ '/en/' | relative_url }}" style="text-decoration: none; margin-left: 10px;">🇺🇸</a>
+  <a href="{{ '/es/' | relative_url }}" style="text-decoration: none; margin-left: 10px;">🇪🇸</a>
+</div>
+
 <header class="site-header">
   <h1 class="logo">GABRYELLA FACCHINI</h1>
   <hr>
-  <nav class="menu">
-  <a href="{{ '/' | relative_url }}">HOME</a>
-
-  <a href="{{ '/about' | relative_url }}">ABOUT</a>
-
-  <a href="{{ '/articles' | relative_url }}">ARTICLES</a>
-
-  <a href="{{ '/contact' | relative_url }}">CONTACT</a>
-  </nav>
+<nav class="menu">
+  {% assign t = site.data.translations.menu %}
+  <a href="{{ '/' | relative_url }}">{{ t.home[page.lang] }}</a>
+  <a href="{{ '/about' | relative_url }}">{{ t.about[page.lang] }}</a>
+  <a href="{{ '/articles' | relative_url }}">{{ t.articles[page.lang] }}</a>
+  <a href="{{ '/contact' | relative_url }}">{{ t.contact[page.lang] }}</a>
+</nav>
 </header>
 
 <main class="container">

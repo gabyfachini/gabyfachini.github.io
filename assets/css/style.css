@@ -259,3 +259,24 @@ img:hover {
   filter: grayscale(100%);
   display: block;
 }
+
+.language-switcher {
+  position: absolute;
+  top: 20px;
+  right: 80px; /* Fica ao lado do botão de tema */
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.language-switcher img {
+  width: 24px;
+  height: auto;
+  cursor: pointer;
+  filter: grayscale(0%); /* Garante que as bandeiras tenham cor se você ativou o P&B global */
+  transition: transform 0.2s;
+}
+
+.language-switcher img:hover {
+  transform: scale(1.2);
+}
