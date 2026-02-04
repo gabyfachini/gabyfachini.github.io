@@ -39,32 +39,10 @@
 </footer>
 
 <div class="language-switcher">
-  <a href="javascript:void(0)" onclick="translatePage('pt')" title="Português">🇧🇷</a>
-  <a href="javascript:void(0)" onclick="translatePage('en')" title="English">🇺🇸</a>
-  <a href="javascript:void(0)" onclick="translatePage('es')" title="Español">🇪🇸</a>
+  <a href="{{ '/' | relative_url }}" title="Português">🇧🇷</a>
+  <a href="{{ '/en/' | relative_url }}" title="English">🇺🇸</a>
+  <a href="{{ '/es/' | relative_url }}" title="Español">🇪🇸</a>
 </div>
-
-<div id="google_translate_element" style="display:none;"></div>
-
-<script type="text/javascript">
-  // Inicializa o Google Translate
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en', 
-      autoDisplay: false
-    }, 'google_translate_element');
-  }
-
-  // Função que as bandeiras chamam
-  function translatePage(lang) {
-    var selectField = document.querySelector("select.goog-te-combo");
-    if (selectField) {
-      selectField.value = lang;
-      selectField.dispatchEvent(new Event('change'));
-    }
-  }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <button id="themeToggle" aria-label="Alternar tema">
   <img id="themeIcon" src="/assets/img/theme-light.png" alt="Tema">
