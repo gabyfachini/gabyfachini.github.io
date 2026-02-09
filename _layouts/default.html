@@ -13,21 +13,19 @@
 
 <div class="language-switcher">
   {% comment %} 
-    Limpamos a URL atual para pegar apenas o nome do arquivo (ex: about.html)
+    Capturamos o nome do arquivo atual (ex: about.html) 
   {% endcomment %}
   {% assign page_name = page.url | split: "/" | last %}
-  
-  {% comment %} Se a página for a home (vazia), garantimos que aponte para index.html {% endcomment %}
   {% if page_name == "" or page.url == "/" %}{% assign page_name = "index.html" %}{% endif %}
 
   <a href="{{ '/' | append: page_name | relative_url }}" 
-     class="{% if page.lang == 'en' %}active{% endif %}">US</a>
+     class="{% if page.lang == 'en' %}active{% endif %}" title="English">US</a>
      
   <a href="{{ '/pt/' | append: page_name | relative_url }}" 
-     class="{% if page.lang == 'pt' %}active{% endif %}">BR</a>
+     class="{% if page.lang == 'pt' %}active{% endif %}" title="Português">BR</a>
      
   <a href="{{ '/es/' | append: page_name | relative_url }}" 
-     class="{% if page.lang == 'es' %}active{% endif %}">ES</a>
+     class="{% if page.lang == 'es' %}active{% endif %}" title="Español">ES</a>
 </div>
 
 <header class="site-header">
@@ -36,15 +34,14 @@
 <nav class="menu">
   {% assign t = site.data.translations.menu %}
   
-  {% comment %} Define o prefixo baseado na pasta atual {% endcomment %}
-  {% assign folder_prefix = "" %}
-  {% if page.lang == "pt" %}{% assign folder_prefix = "/pt/" %}
-  {% elsif page.lang == "es" %}{% assign folder_prefix = "/es/" %}{% endif %}
+  {% assign prefix = "" %}
+  {% if page.lang == "pt" %}{% assign prefix = "/pt/" %}
+  {% elsif page.lang == "es" %}{% assign prefix = "/es/" %}{% endif %}
 
-  <a href="{{ folder_prefix | append: 'index.html' | relative_url }}">{{ t.home[page.lang] }}</a>
-  <a href="{{ folder_prefix | append: 'about.html' | relative_url }}">{{ t.about[page.lang] }}</a>
-  <a href="{{ folder_prefix | append: 'articles.html' | relative_url }}">{{ t.articles.html[page.lang] }}</a>
-  <a href="{{ folder_prefix | append: 'contact.html' | relative_url }}">{{ t.contact[page.lang] }}</a>
+  <a href="{{ prefix | append: 'index.html' | relative_url }}">{{ t.home[page.lang] }}</a>
+  <a href="{{ prefix | append: 'about.html' | relative_url }}">{{ t.about[page.lang] }}</a>
+  <a href="{{ prefix | append: 'articles.html' | relative_url }}">{{ t.articles[page.lang] }}</a>
+  <a href="{{ prefix | append: 'contact.html' | relative_url }}">{{ t.contact[page.lang] }}</a>
 </nav>
 </header>
 
