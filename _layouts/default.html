@@ -13,20 +13,22 @@
 
 <div class="language-switcher">
   {% comment %} 
-    Capturamos o nome do arquivo atual (ex: about.html) 
+    Limpamos a URL atual de qualquer prefixo /pt/ ou /es/ para obter o caminho base
   {% endcomment %}
-  {% assign page_name = page.url | split: "/" | last %}
-  {% if page_name == "" or page.url == "/" %}{% assign page_name = "index.html" %}{% endif %}
+  {% assign base_path = page.url | replace: '/pt/', '/' | replace: '/es/', '/' %}
+  
+  {% comment %} Garante que URLs vazias apontem para a raiz corretamente {% endcomment %}
+  {% if base_path == "/" or base_path == "" %}{% assign base_path = "/index.html" %}{% endif %}
 
-  <a href="{{ '/' | append: page_name | relative_url }}" 
-     class="{% if page.lang == 'en' %}active{% endif %}" title="English">US</a>
+  <a href="{{ base_path | prepend: site.baseurl }}" 
+     class="{% if page.lang == 'en' %}active{% endif %}">US</a>
      
-  <a href="{{ '/pt/' | append: page_name | relative_url }}" 
-     class="{% if page.lang == 'pt' %}active{% endif %}" title="Português">BR</a>
+  <a href="{{ base_path | prepend: '/pt' | prepend: site.baseurl | replace: '//', '/' }}" 
+     class="{% if page.lang == 'pt' %}active{% endif %}">BR</a>
      
-  <a href="{{ '/es/' | append: page_name | relative_url }}" 
-     class="{% if page.lang == 'es' %}active{% endif %}" title="Español">ES</a>
-</div>
+  <a href="{{ base_path | prepend: '/es' | prepend: site.baseurl | replace: '//', '/' }}" 
+     class="{% if page.lang == 'es' %}active{% endif %}">ES</a>
+</div>s
 
 <header class="site-header">
   <h1 class="logo">GABRYELLA FACCHINI</h1>

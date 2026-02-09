@@ -276,7 +276,7 @@ img:hover {
 }
 
 .language-switcher {
-  right: 70px; /* Ajuste leve para proximidade */
+  right: 80px; /* Aumentei um pouco para não colar no botão de tema */
   display: flex;
   gap: 15px;
   align-items: center;
@@ -284,22 +284,23 @@ img:hover {
 
 .language-switcher a {
   text-decoration: none;
-  font-size: 0.8rem; /* Diminuído para não brigar com o ícone de sol/lua */
+  font-size: 0.8rem;
   font-weight: bold;
   color: var(--text);
-  transition: transform 0.2s ease, color 0.2s;
+  transition: all 0.2s ease;
   filter: grayscale(0%) !important;
-  line-height: 1; /* Evita que o texto "pule" */
-}
-
-.language-switcher a:hover {
-  transform: scale(1.1);
-  color: var(--muted);
+  line-height: 1;
+  opacity: 0.6; /* Deixa as opções não selecionadas mais discretas */
 }
 
 /* Estilo para a linguagem ativa */
 .language-switcher a.active {
-  border-bottom: 2px solid var(--muted); /* Cria a linha embaixo */
-  padding-bottom: 2px; /* Espaço entre a letra e a linha */
-  color: var(--text); /* Garante que a cor seja a principal */
+  opacity: 1; /* Destaque total para a língua ativa */
+  border-bottom: 2px solid var(--text); /* Linha na cor do texto do tema atual */
+  padding-bottom: 2px;
+}
+
+.language-switcher a:hover {
+  transform: scale(1.1);
+  opacity: 1;
 }
