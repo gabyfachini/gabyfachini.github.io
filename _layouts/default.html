@@ -13,19 +13,21 @@
 
 <div class="language-switcher">
   {% comment %} 
-     O filtro 'replace' remove o prefixo do idioma atual da URL para 
-     podermos trocar pelo novo corretamente. 
+    Limpamos a URL atual para pegar apenas o nome do arquivo (ex: about.html)
   {% endcomment %}
-  {% assign current_path = page.url | replace: '/pt/', '/' | replace: '/es/', '/' %}
+  {% assign page_name = page.url | split: "/" | last %}
+  
+  {% comment %} Se a página for a home (vazia), garantimos que aponte para index.html {% endcomment %}
+  {% if page_name == "" or page.url == "/" %}{% assign page_name = "index.html" %}{% endif %}
 
-  <a href="{{ current_path | relative_url }}" 
-     class="{% if page.lang == 'en' %}active{% endif %}" title="English">US</a>
+  <a href="{{ '/' | append: page_name | relative_url }}" 
+     class="{% if page.lang == 'en' %}active{% endif %}">US</a>
      
-  <a href="{{ current_path | prepend: '/pt' | replace: '//', '/' | relative_url }}" 
-     class="{% if page.lang == 'pt' %}active{% endif %}" title="Português">BR</a>
+  <a href="{{ '/pt/' | append: page_name | relative_url }}" 
+     class="{% if page.lang == 'pt' %}active{% endif %}">BR</a>
      
-  <a href="{{ current_path | prepend: '/es' | replace: '//', '/' | relative_url }}" 
-     class="{% if page.lang == 'es' %}active{% endif %}" title="Español">ES</a>
+  <a href="{{ '/es/' | append: page_name | relative_url }}" 
+     class="{% if page.lang == 'es' %}active{% endif %}">ES</a>
 </div>
 
 <header class="site-header">
@@ -33,16 +35,16 @@
   <hr>
 <nav class="menu">
   {% assign t = site.data.translations.menu %}
-  {% comment %} Define o prefixo do idioma: se for inglês (raiz), fica vazio; se não, usa /pt/ ou /es/ {% endcomment %}
-  {% assign lang_prefix = "" %}
-  {% if page.lang != "en" %}
-    {% assign lang_prefix = page.lang | append: "/" %}
-  {% endif %}
+  
+  {% comment %} Define o prefixo baseado na pasta atual {% endcomment %}
+  {% assign folder_prefix = "" %}
+  {% if page.lang == "pt" %}{% assign folder_prefix = "/pt/" %}
+  {% elsif page.lang == "es" %}{% assign folder_prefix = "/es/" %}{% endif %}
 
-  <a href="{{ '/' | append: lang_prefix | relative_url }}">{{ t.home[page.lang] }}</a>
-  <a href="{{ '/about/' | prepend: lang_prefix | relative_url }}">{{ t.about[page.lang] }}</a>
-  <a href="{{ '/articles/' | prepend: lang_prefix | relative_url }}">{{ t.articles[page.lang] }}</a>
-  <a href="{{ '/contact/' | prepend: lang_prefix | relative_url }}">{{ t.contact[page.lang] }}</a>
+  <a href="{{ folder_prefix | append: 'index.html' | relative_url }}">{{ t.home[page.lang] }}</a>
+  <a href="{{ folder_prefix | append: 'about.html' | relative_url }}">{{ t.about[page.lang] }}</a>
+  <a href="{{ folder_prefix | append: 'articles.html' | relative_url }}">{{ t.articles.html[page.lang] }}</a>
+  <a href="{{ folder_prefix | append: 'contact.html' | relative_url }}">{{ t.contact[page.lang] }}</a>
 </nav>
 </header>
 
