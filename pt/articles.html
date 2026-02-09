@@ -11,14 +11,19 @@ title: Artigos
 
   <div class="articles-list">
     {% comment %} 
-      Este loop percorre TODOS os posts do site, 
-      sem pular nenhum (sem o offset do home).
+      Filtramos para mostrar apenas os posts que possuem lang: pt no Front Matter
     {% endcomment %}
-    {% for post in site.posts %}
+    {% assign posts_pt = site.posts | where: "lang", "pt" %}
+
+    {% for post in posts_pt %}
     <article style="display: flex; gap: 20px; margin-bottom: 30px; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 20px;">
       
       <div style="width: 150px; flex-shrink: 0;">
-        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" style="width: 100%; border-radius: 4px;">
+        {% if post.image %}
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" style="width: 100%; border-radius: 4px;">
+        {% else %}
+          <img src="{{ '/assets/img/default-post.webp' | relative_url }}" style="width: 100%; border-radius: 4px;">
+        {% endif %}
       </div>
 
       <div>
@@ -52,6 +57,10 @@ title: Artigos
       </div>
 
     </article>
+    {% else %}
+      <p style="text-align: center; color: var(--muted); margin-top: 40px;">
+        Ainda não há artigos publicados em português.
+      </p>
     {% endfor %}
   </div>
 </section>
