@@ -12,10 +12,16 @@
 <body>
 
 <div class="language-switcher">
-  <a href="{{ '/' | relative_url }}" title="English">&#127482;&#127480;</a> 
-  <a href="{{ '/pt/' | relative_url }}" title="Português">&#127463;&#127479;</a> 
-  <a href="{{ '/es/' | relative_url }}" title="Español">&#127466;&#127480;</a> 
+  <a href="{{ '/' | relative_url }}" 
+     class="{% if page.lang == 'en' %}active{% endif %}" title="English">US</a>
+     
+  <a href="{{ '/pt/' | relative_url }}" 
+     class="{% if page.lang == 'pt' %}active{% endif %}" title="Português">BR</a>
+     
+  <a href="{{ '/es/' | relative_url }}" 
+     class="{% if page.lang == 'es' %}active{% endif %}" title="Español">ES</a>
 </div>
+
 <header class="site-header">
   <h1 class="logo">GABRYELLA FACCHINI</h1>
   <hr>
