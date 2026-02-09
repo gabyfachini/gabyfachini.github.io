@@ -1,4 +1,57 @@
 ---
 layout: default
 lang: es
+title: Artículos
 ---
+
+<section class="container">
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; text-align: center; margin-top: 10px; margin-bottom: 20px;">
+    Todos los Artículos
+    </h2>
+
+  <div class="articles-list">
+    {% comment %} 
+      Este loop recorre TODOS los posts del sitio, 
+      sin saltar ninguno (sin el offset del home).
+    {% endcomment %}
+    {% for post in site.posts %}
+    <article style="display: flex; gap: 20px; margin-bottom: 30px; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 20px;">
+      
+      <div style="width: 150px; flex-shrink: 0;">
+        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" style="width: 100%; border-radius: 4px;">
+      </div>
+
+      <div>
+        <p style="font-size: 0.8rem; color: var(--muted); margin: 0;">
+          {% assign m = post.date | date: "%-m" %}
+          {{ post.date | date: "%d de " }}
+          {% case m %}
+            {% when '1' %}enero
+            {% when '2' %}febrero
+            {% when '3' %}marzo
+            {% when '4' %}abril
+            {% when '5' %}mayo
+            {% when '6' %}junio
+            {% when '7' %}julio
+            {% when '8' %}agosto
+            {% when '9' %}septiembre
+            {% when '10' %}octubre
+            {% when '11' %}noviembre
+            {% when '12' %}diciembre
+          {% endcase %}
+          {{ post.date | date: " de %Y" }}
+        </p>
+        <h3 style="margin: 5px 0; font-family: 'Playfair Display', serif;">
+          <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: var(--text);">
+            {{ post.title }}
+          </a>
+        </h3>
+        <p style="font-size: 0.9rem; color: var(--text);">
+          {{ post.excerpt | strip_html | truncatewords: 20 }}
+        </p>
+      </div>
+
+    </article>
+    {% endfor %}
+  </div>
+</section>

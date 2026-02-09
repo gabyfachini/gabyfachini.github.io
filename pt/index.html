@@ -1,4 +1,60 @@
 ---
-layout: default
+# Configurações de Front Matter (metadados da página)
+layout: default   # Define que esta página usará o modelo "default.html" da pasta _layouts
 lang: pt
+title: Início      # Título da página
 ---
+
+{% comment %} 
+  Cria uma variável chamada 'hero' que armazena o post mais recente (índice 0).
+  Isso facilita o acesso aos dados sem repetir 'site.posts[0]' várias vezes.
+{% endcomment %}
+{% assign hero = site.posts[0] %}
+
+<section class="hero">
+  <img src="{{ hero.image }}" alt="{{ hero.title }}">
+  
+  <div class="hero-text">
+    <h2>{{ hero.title }}</h2>
+    <p class="tagline">{{ hero.subtitle }}</p>
+    <p>{{ hero.excerpt }}</p>
+    
+    <a class="read-more" href="{{ hero.url }}">Leia Mais</a>
+  </div>
+</section>
+
+<section class="grid">
+  {% comment %} 
+    Loop 'for' que percorre a lista de posts:
+    - offset:1 -> Pula o primeiro post (que já está no destaque acima).
+    - limit:2  -> Pega apenas os 2 posts seguintes.
+  {% endcomment %}
+  {% for post in site.posts offset:1 limit:2 %}
+  <article class="card">
+    <img src="{{ post.image }}" alt="{{ post.title }}">
+    <h3>{{ post.title }}</h3>
+    
+    <p class="date">
+      {% assign m = post.date | date: "%-m" %}
+      {{ post.date | date: "%d de " }}
+      {% case m %}
+        {% when '1' %}janeiro
+        {% when '2' %}fevereiro
+        {% when '3' %}março
+        {% when '4' %}abril
+        {% when '5' %}maio
+        {% when '6' %}junho
+        {% when '7' %}julho
+        {% when '8' %}agosto
+        {% when '9' %}setembro
+        {% when '10' %}outubro
+        {% when '11' %}novembro
+        {% when '12' %}dezembro
+      {% endcase %}
+      {{ post.date | date: " de %Y" }}
+    </p>
+    
+    <p>{{ post.excerpt }}</p>
+  </article>
+  {% endfor %}
+</section>

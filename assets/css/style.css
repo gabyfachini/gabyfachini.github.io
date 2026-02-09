@@ -261,7 +261,7 @@ img:hover {
 }
 
 .language-switcher {
-  position: absolute; /* Fixa no topo */
+  position: fixed; /* Fixa no topo */
   top: 25px;
   right: 80px; /* Dá espaço para o botão de Dark Mode que está no 20px */
   display: flex;

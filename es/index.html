@@ -1,4 +1,59 @@
 ---
-layout: default
+# Configuración de Front Matter
+layout: default   # Define que esta página usará el modelo "default.html"
 lang: es
+title: Inicio     # Título de la página
 ---
+
+{% comment %} 
+  Crea una variable llamada 'hero' que almacena el post más reciente (índice 0).
+{% endcomment %}
+{% assign hero = site.posts[0] %}
+
+<section class="hero">
+  <img src="{{ hero.image }}" alt="{{ hero.title }}">
+  
+  <div class="hero-text">
+    <h2>{{ hero.title }}</h2>
+    <p class="tagline">{{ hero.subtitle }}</p>
+    <p>{{ hero.excerpt }}</p>
+    
+    <a class="read-more" href="{{ hero.url }}">Leer Más</a>
+  </div>
+</section>
+
+<section class="grid">
+  {% comment %} 
+    Bucle 'for' que recorre la lista de posts:
+    - offset:1 -> Salta el primer post (que ya está en el destaque).
+    - limit:2  -> Toma solo los 2 posts siguientes.
+  {% endcomment %}
+  {% for post in site.posts offset:1 limit:2 %}
+  <article class="card">
+    <img src="{{ post.image }}" alt="{{ post.title }}">
+    <h3>{{ post.title }}</h3>
+    
+    <p class="date">
+      {% assign m = post.date | date: "%-m" %}
+      {{ post.date | date: "%d de " }}
+      {% case m %}
+        {% when '1' %}enero
+        {% when '2' %}febrero
+        {% when '3' %}marzo
+        {% when '4' %}abril
+        {% when '5' %}mayo
+        {% when '6' %}junio
+        {% when '7' %}julio
+        {% when '8' %}agosto
+        {% when '9' %}septiembre
+        {% when '10' %}octubre
+        {% when '11' %}noviembre
+        {% when '12' %}diciembre
+      {% endcase %}
+      {{ post.date | date: " de %Y" }}
+    </p>
+    
+    <p>{{ post.excerpt }}</p>
+  </article>
+  {% endfor %}
+</section>
