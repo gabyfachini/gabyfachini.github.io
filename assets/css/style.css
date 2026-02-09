@@ -299,7 +299,7 @@ img:hover {
 
 /* Estilo para a linguagem ativa */
 .language-switcher a.active {
-  border-bottom: 2px solid var(--text); /* Cria a linha embaixo */
+  border-bottom: 2px solid var(--muted); /* Cria a linha embaixo */
   padding-bottom: 2px; /* Espaço entre a letra e a linha */
   color: var(--text); /* Garante que a cor seja a principal */
 }

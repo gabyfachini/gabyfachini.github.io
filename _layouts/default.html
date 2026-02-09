@@ -12,13 +12,19 @@
 <body>
 
 <div class="language-switcher">
-  <a href="{{ '/' | relative_url }}" 
+  {% comment %} 
+     O filtro 'replace' remove o prefixo do idioma atual da URL para 
+     podermos trocar pelo novo corretamente. 
+  {% endcomment %}
+  {% assign current_path = page.url | replace: '/pt/', '/' | replace: '/es/', '/' %}
+
+  <a href="{{ current_path | relative_url }}" 
      class="{% if page.lang == 'en' %}active{% endif %}" title="English">US</a>
      
-  <a href="{{ '/pt/' | relative_url }}" 
+  <a href="{{ current_path | prepend: '/pt' | replace: '//', '/' | relative_url }}" 
      class="{% if page.lang == 'pt' %}active{% endif %}" title="Português">BR</a>
      
-  <a href="{{ '/es/' | relative_url }}" 
+  <a href="{{ current_path | prepend: '/es' | replace: '//', '/' | relative_url }}" 
      class="{% if page.lang == 'es' %}active{% endif %}" title="Español">ES</a>
 </div>
 
@@ -27,10 +33,16 @@
   <hr>
 <nav class="menu">
   {% assign t = site.data.translations.menu %}
-  <a href="{{ '/' | relative_url }}">{{ t.home[page.lang] }}</a>
-  <a href="{{ '/about' | relative_url }}">{{ t.about[page.lang] }}</a>
-  <a href="{{ '/articles' | relative_url }}">{{ t.articles[page.lang] }}</a>
-  <a href="{{ '/contact' | relative_url }}">{{ t.contact[page.lang] }}</a>
+  {% comment %} Define o prefixo do idioma: se for inglês (raiz), fica vazio; se não, usa /pt/ ou /es/ {% endcomment %}
+  {% assign lang_prefix = "" %}
+  {% if page.lang != "en" %}
+    {% assign lang_prefix = page.lang | append: "/" %}
+  {% endif %}
+
+  <a href="{{ '/' | append: lang_prefix | relative_url }}">{{ t.home[page.lang] }}</a>
+  <a href="{{ '/about/' | prepend: lang_prefix | relative_url }}">{{ t.about[page.lang] }}</a>
+  <a href="{{ '/articles/' | prepend: lang_prefix | relative_url }}">{{ t.articles[page.lang] }}</a>
+  <a href="{{ '/contact/' | prepend: lang_prefix | relative_url }}">{{ t.contact[page.lang] }}</a>
 </nav>
 </header>
 
