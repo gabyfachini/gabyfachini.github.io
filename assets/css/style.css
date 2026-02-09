@@ -261,21 +261,22 @@ img:hover {
 }
 
 .language-switcher {
-  position: fixed; /* Fixa no topo */
-  top: 25px;
-  right: 80px; /* Dá espaço para o botão de Dark Mode que está no 20px */
+  position: fixed; /* Mantém fixo na tela ao rolar */
+  top: 20px;       /* Alinhado com a mesma altura do botão de Dark Mode */
+  right: 80px;     /* Distância lateral para não sobrepor o botão (que está em 20px) */
   display: flex;
   gap: 12px;
-  z-index: 1000;
+  z-index: 1000;   /* Garante que fique por cima de outros elementos */
 }
 
 .language-switcher a {
   text-decoration: none;
-  font-size: 1.4rem; /* Aumenta o tamanho dos emojis */
+  font-size: 1.4rem; 
   transition: transform 0.2s ease;
-  filter: grayscale(0%); /* Garante que as bandeiras tenham cor se o site for P&B */
+  /* IMPORTANTE: Mantemos grayscale(0%) aqui para as bandeiras não ficarem cinzas */
+  filter: grayscale(0%) !important; 
 }
 
 .language-switcher a:hover {
-  transform: scale(1.2); /* Efeito de zoom ao passar o mouse */
+  transform: scale(1.2);
 }
