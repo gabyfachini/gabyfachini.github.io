@@ -1,11 +1,25 @@
 /* --- Global Reset & Base Styles --- */
 body {
   margin: 0;
-  /* Applying CSS variables for theme switching */
   background: var(--bg);
   color: var(--text);
   font-family: 'Inter', sans-serif;
-  transition: background 0.3s, color 0.3s; /* Smooth transition when toggling themes */
+  transition: background 0.3s, color 0.3s;
+}
+
+/* --- Theme Color Definitions --- */
+:root {
+  --bg: #f7f5f2;
+  --text: #222;
+  --muted: #777;
+  --card: #ffffff;
+}
+
+.dark {
+  --bg: #181818;
+  --text: #eaeaea;
+  --muted: #999;
+  --card: #222;
 }
 
 /* --- Header & Navigation --- */
@@ -30,7 +44,6 @@ body {
 .menu a {
   margin: 0 16px;
   text-decoration: none;
-  /* Inherits text color variable */
   color: var(--text);
   font-size: 0.75rem;
   letter-spacing: 2px;
@@ -43,16 +56,15 @@ body {
   padding: 40px 20px;
 }
 
-/* --- Hero Section (Featured Post) --- */
+/* --- Hero Section & Grid --- */
 .hero {
   display: grid;
-  /* Creates a 2-column layout for desktop */
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   margin-bottom: 80px;
 }
 
-.hero img {
+.hero img, .card img {
   width: 100%;
   object-fit: cover;
 }
@@ -62,28 +74,10 @@ body {
   font-size: 2.6rem;
 }
 
-.tagline {
-  font-style: italic;
-  color: var(--muted);
-}
-
-.read-more {
-  display: inline-block;
-  margin-top: 16px;
-  text-decoration: underline;
-  color: var(--text);
-}
-
-/* --- Post Grid Section --- */
 .grid {
   display: grid;
-  /* Creates a responsive grid with 2 equal columns */
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
-}
-
-.card img {
-  width: 100%;
 }
 
 .card h3 {
@@ -91,93 +85,24 @@ body {
   font-size: 1.4rem;
 }
 
-.date {
-  font-size: 0.75rem;
-  color: var(--muted);
-}
-
-/* --- Footer --- */
-.footer {
-  text-align: center;
-  font-size: 0.7rem;
-  padding: 40px 10px;
-  color: var(--muted);
-}
-
-/* --- Theme Toggle Button --- */
-#themeToggle {
-  position: fixed; /* Keeps button in the same spot while scrolling */
-  top: 20px;
-  right: 20px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 999; /* Ensures button stays on top of other elements */
-}
-
-#themeToggle img {
-  width: 34px;
-  height: 34px;
-}
-
-/* --- Theme Color Definitions --- */
-
-/* Light Mode Variables (Default) */
-:root {
-  --bg: #f7f5f2;
-  --text: #222;
-  --muted: #777;
-  --card: #ffffff;
-}
-
-/* Dark Mode Variables (Activated via JavaScript class) */
-.dark {
-  --bg: #181818;
-  --text: #eaeaea;
-  --muted: #999;
-  --card: #222;
-}
-
-/* Note: Body, Footer, Date, and Tagline properties are already 
-   linked to variables above to ensure dynamic updates. */
-
-   /* --- About Page Specific Styles --- */
-
+/* --- About Page Specific Styles --- */
 .about-page {
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
-/* Header Layout */
 .about-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 40px;
-  margin-bottom: 60px;
-}
-
-.about-hero-img {
-  flex: 1.2;
-}
-
-.about-hero-img img {
   width: 100%;
-  height: auto;
-  display: block;
-}
-
-.about-brand {
-  flex: 1;
-  padding-top: 20px;
+  margin-bottom: 30px;
 }
 
 .about-brand h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
-  letter-spacing: 8px;
+  font-size: 2.2rem;
   line-height: 1.2;
   margin: 0;
+  letter-spacing: 2px; /* Ajustado para o slogan longo */
 }
 
 .brand-line {
@@ -187,17 +112,12 @@ body {
   width: 100%;
 }
 
-/* Main Content Layout */
 .about-content {
   display: grid;
-  grid-template-columns: 1.5fr 1fr; /* Coluna de texto maior que a da imagem lateral */
-  gap: 60px;
-}
-
-.main-headline {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
-  margin-bottom: 30px;
+  grid-template-columns: 1.5fr 1fr; /* Texto largo na esquerda, imagem na direita */
+  gap: 40px;
+  align-items: start;
+  margin-top: 20px;
 }
 
 .about-content h3 {
@@ -208,53 +128,38 @@ body {
   color: var(--muted);
 }
 
-.about-content p, .why-list li {
+.about-content p {
   line-height: 1.6;
   font-size: 0.95rem;
   margin-bottom: 15px;
 }
 
-.why-list {
-  padding-left: 20px;
-}
-
-.why-list li {
-  margin-bottom: 15px;
-}
-
 .side-img {
   width: 100%;
-  margin-top: 40px; /* Alinha a imagem lateral mais para baixo como no modelo */
+  height: auto;
+  display: block;
 }
 
-/* Responsividade para Celular */
-@media (max-width: 768px) {
-  .about-header, .about-content {
-    display: block;
-  }
-  .about-brand h1 {
-    font-size: 1.8rem;
-    margin-top: 20px;
-  }
-  .side-img {
-    display: none; /* Esconde a imagem lateral no celular para focar no texto */
-  }
-}
-
-/* --- Grayscale Image Effect --- */
-/* Unificado: afeta todas as imagens, inclusive da página About */
+/* --- Global Image Effects --- */
 img {
   filter: grayscale(100%);
   transition: filter 0.5s ease;
-  display: block; /* Adicionado aqui para evitar repetição */
+  display: block;
 }
 
 img:hover {
   filter: grayscale(0%);
 }
 
+/* --- Footer --- */
+.footer {
+  text-align: center;
+  font-size: 0.7rem;
+  padding: 40px 10px;
+  color: var(--muted);
+}
+
 /* --- Switchers (Theme & Language) --- */
-/* Agrupamos o que é comum aos dois para simplificar */
 #themeToggle, 
 .language-switcher {
   position: fixed;
@@ -273,10 +178,11 @@ img:hover {
 #themeToggle img {
   width: 34px;
   height: 34px;
+  filter: none !important; /* Ícone de tema sempre colorido */
 }
 
 .language-switcher {
-  right: 80px; /* Aumentei um pouco para não colar no botão de tema */
+  right: 80px;
   display: flex;
   gap: 15px;
   align-items: center;
@@ -289,18 +195,32 @@ img:hover {
   color: var(--text);
   transition: all 0.2s ease;
   filter: grayscale(0%) !important;
-  line-height: 1;
-  opacity: 0.6; /* Deixa as opções não selecionadas mais discretas */
+  opacity: 0.6;
 }
 
-/* Estilo para a linguagem ativa */
 .language-switcher a.active {
-  opacity: 1; /* Destaque total para a língua ativa */
-  border-bottom: 2px solid var(--text); /* Linha na cor do texto do tema atual */
+  opacity: 1;
+  border-bottom: 2px solid var(--text);
   padding-bottom: 2px;
 }
 
 .language-switcher a:hover {
   transform: scale(1.1);
   opacity: 1;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
+  .hero, .grid, .about-content {
+    grid-template-columns: 1fr;
+    display: block;
+  }
+  
+  .about-brand h1 {
+    font-size: 1.8rem;
+  }
+
+  .side-img {
+    margin-top: 30px;
+  }
 }
