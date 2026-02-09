@@ -242,41 +242,57 @@ body {
 }
 
 /* --- Grayscale Image Effect --- */
-
-/* Aplica o efeito de preto e branco em todas as imagens do site */
+/* Unificado: afeta todas as imagens, inclusive da página About */
 img {
   filter: grayscale(100%);
-  transition: filter 0.5s ease; /* Suaviza a transição caso queira remover o efeito no hover */
+  transition: filter 0.5s ease;
+  display: block; /* Adicionado aqui para evitar repetição */
 }
 
-/* Opcional: Faz a imagem voltar a ter cor quando você passa o mouse por cima */
 img:hover {
   filter: grayscale(0%);
 }
 
-/* Ajuste específico para garantir que as imagens da página About sigam o modelo */
-.about-page img {
-  filter: grayscale(100%);
-  display: block;
+/* --- Switchers (Theme & Language) --- */
+/* Agrupamos o que é comum aos dois para simplificar */
+#themeToggle, 
+.language-switcher {
+  position: fixed;
+  top: 20px;
+  z-index: 1000;
+}
+
+#themeToggle {
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+#themeToggle img {
+  width: 34px;
+  height: 34px;
 }
 
 .language-switcher {
-  position: fixed; /* Mantém fixo na tela ao rolar */
-  top: 20px;       /* Alinhado com a mesma altura do botão de Dark Mode */
-  right: 80px;     /* Distância lateral para não sobrepor o botão (que está em 20px) */
+  right: 70px; /* Ajuste leve para proximidade */
   display: flex;
-  gap: 12px;
-  z-index: 1000;   /* Garante que fique por cima de outros elementos */
+  gap: 15px;
+  align-items: center;
 }
 
 .language-switcher a {
   text-decoration: none;
-  font-size: 1.4rem; 
-  transition: transform 0.2s ease;
-  /* IMPORTANTE: Mantemos grayscale(0%) aqui para as bandeiras não ficarem cinzas */
-  filter: grayscale(0%) !important; 
+  font-size: 0.8rem; /* Diminuído para não brigar com o ícone de sol/lua */
+  font-weight: bold;
+  color: var(--text);
+  transition: transform 0.2s ease, color 0.2s;
+  filter: grayscale(0%) !important;
+  line-height: 1; /* Evita que o texto "pule" */
 }
 
 .language-switcher a:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
+  color: var(--muted);
 }
