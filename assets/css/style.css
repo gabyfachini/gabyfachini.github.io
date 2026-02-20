@@ -180,56 +180,54 @@ img:hover {
   color: var(--muted);
 }
 
-/* --- Top Bar (Fixa o cabeçalho de utilitários) --- */
-.top-bar {
+/* --- Switchers (Theme & Language) --- */
+#themeToggle, 
+.language-switcher {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50px; /* Altura da barra */
-  background: var(--bg); /* Usa a cor de fundo do tema */
-  display: flex;
-  justify-content: flex-end; /* Alinha os itens à direita */
-  align-items: center;
-  padding: 0 20px;
-  z-index: 1001;
-  border-bottom: 1px solid rgba(0,0,0,0.05); /* Linha divisória sutil */
+  top: 20px;
+  z-index: 1000;
 }
 
-/* Compensa o espaço da barra para o texto não sumir atrás dela */
-body {
-  padding-top: 50px; 
-}
-
-/* Ajuste dos elementos internos (agora eles não são mais fixed, a barra é) */
 #themeToggle {
+  right: 20px;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
-  margin-left: 20px;
 }
 
 #themeToggle img {
-  width: 28px;
-  height: 28px;
-  filter: none !important;
+  width: 34px;
+  height: 34px;
+  filter: none !important; /* Ícone de tema sempre colorido */
 }
 
 .language-switcher {
+  right: 80px;
   display: flex;
   gap: 15px;
+  align-items: center;
 }
 
 .language-switcher a {
-  font-size: 0.75rem;
+  text-decoration: none;
+  font-size: 0.8rem;
   font-weight: bold;
+  color: var(--text);
+  transition: all 0.2s ease;
+  filter: grayscale(0%) !important;
   opacity: 0.6;
 }
 
 .language-switcher a.active {
   opacity: 1;
   border-bottom: 2px solid var(--text);
+  padding-bottom: 2px;
+}
+
+.language-switcher a:hover {
+  transform: scale(1.1);
+  opacity: 1;
 }
 
 /* --- Responsiveness --- */
@@ -245,21 +243,5 @@ body {
 
   .side-img {
     margin-top: 30px;
-  }
-
-  .menu {
-    display: flex;
-    flex-wrap: wrap; /* Permite que os itens quebrem linha se necessário */
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .menu a {
-    margin: 5px;
-    padding: 8px 12px;
-    background: var(--card); /* Cria um aspecto de "botão" ou tag */
-    border-radius: 4px;
-    font-size: 0.7rem;
-    border: 1px solid rgba(0,0,0,0.05);
   }
 }
