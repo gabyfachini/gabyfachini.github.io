@@ -21,7 +21,7 @@ title: Home
 
 <section class="grid">
   {% comment %} 2. Percorremos os posts filtrados, pulando o hero {% endcomment %}
-  {% for post in filtered_posts offset:1 limit:2 %}
+  {% for post in filtered_posts offset:1 limit:4 %}
   <article class="card">
     <a href="{{ post.url | relative_url }}">
       <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
