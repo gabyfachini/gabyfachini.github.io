@@ -7,6 +7,18 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
+/* Estilo global para links (Artigos e títulos) */
+a {
+  text-decoration: none;   /* Remove o sublinhado */
+  color: var(--text);      /* Usa a cor cinza escuro/preto que você definiu no :root */
+  transition: opacity 0.3s;
+}
+
+/* Efeito sutil ao passar o mouse */
+a:hover {
+  opacity: 0.7;
+}
+
 /* --- Theme Color Definitions --- */
 :root {
   --bg: #f7f5f2;
@@ -20,6 +32,15 @@ body {
   --text: #eaeaea;
   --muted: #999;
   --card: #222;
+}
+
+.card a {
+  color: var(--text);
+  display: block; /* Melhora a área de clique */
+}
+
+.card a:hover h3 {
+  color: var(--muted); /* O título fica levemente cinza ao passar o mouse */
 }
 
 /* --- Header & Navigation --- */
