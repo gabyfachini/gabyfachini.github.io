@@ -1,51 +1,40 @@
 ---
 layout: default
 lang: en
-title: About Me
+title: Contact
 ---
 
-<article class="about-page container">
+<section class="container" style="text-align: center; max-width: 600px; margin: 0 auto; padding: 60px 20px;">
+  
+  <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px;">
+    Let's Connect
+  </h2>
+  
+  <p style="font-family: 'Inter', sans-serif; color: var(--muted); line-height: 1.6; margin-bottom: 40px;">
+    I am always open to discussing new projects, creative ideas, or opportunities to be part of your visions. 
+    Currently, my primary channel for professional networking and inquiries is LinkedIn.
+  </p>
 
-  <section class="about-header">
-    <div class="about-brand">
-      <h1>TECHNOLOGY, STRATEGY, AND<br>HUMAN IMPACT</h1>
-      <hr class="brand-line">
-    </div>
-  </section>
+  <div class="contact-link">
+    <a href="https://www.linkedin.com/in/gabryellafachini/" target="_blank" style="text-decoration: none; color: var(--text);">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="margin-bottom: 10px; transition: transform 0.3s ease;">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+      </svg>
+      <p style="font-weight: 500; letter-spacing: 1px; font-size: 0.9rem;">MESSAGE ME ON LINKEDIN</p>
+    </a>
+  </div>
 
-  <section class="about-content">
-    <div class="text-column">
+</section>
 
-      <h3>WHO I AM</h3>
-      <p>
-        Hi! I'm Gaby, passionate about sports, connections, and cultures. I believe people are what truly
-        matter — a perspective strengthened during my military service in the Brazilian Air Force. I've always
-        been fascinated by how businesses work, shaping my strategic outlook.
-      </p>
-
-      <h3>ACADEMIC BACKGROUND</h3>
-      <p>
-        Food Engineer from USP and Business graduate from FAM, I am currently studying Information Systems
-        at XP Educação. I specialized in Aircraft Electronics and Radars at EEAR. Currently, I am
-        self-studying Software and Machine Learning, aiming for a Master's in AI in Europe.
-      </p>
-
-      <h3>A MULTIDISCIPLINARY CAREER</h3>
-      <p>
-        My path includes roles in Admin, Operations, UX, Development, and Software Architecture. I also
-        founded an e-commerce business, gaining a 360° view of digital systems. Leadership and empathy are
-        my pillars: I've been a volunteer since 2019 and a community leader since my military application days.
-      </p>
-
-    </div>
-
-    <div class="image-column">
-      <img
-        src="{{ '/assets/img/about-side.webp' | relative_url }}"
-        alt="Gabryella Facchini"
-        class="side-img"
-        loading="lazy">
-    </div>
-  </section>
-
-</article>
+<style>
+  .contact-link a:hover svg {
+    transform: scale(1.1);
+    color: #0077b5; /* Cor oficial do LinkedIn no hover */
+  }
+  .contact-link p {
+    transition: color 0.3s;
+  }
+  .contact-link a:hover p {
+    color: #0077b5;
+  }
+</style>

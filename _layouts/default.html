@@ -1,119 +1,97 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: 'en' }}">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+  <title>{{ page.title }} | {{ site.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>{{ page.title }} | {{ site.title }}</title>
-
-  <!-- SEO Meta -->
-  {% assign t = site.data.translations %}
-  {% assign meta_desc = page.description | default: t.meta_description[page.lang] | default: t.meta_description.en %}
-  <meta name="description" content="{{ meta_desc }}">
-  <meta name="author" content="Gabryella Facchini">
-  <link rel="canonical" href="{{ page.url | absolute_url }}">
-
-  <!-- Open Graph -->
-  <meta property="og:type"        content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
-  <meta property="og:title"       content="{{ page.title }} | {{ site.title }}">
-  <meta property="og:description" content="{{ meta_desc }}">
-  <meta property="og:url"         content="{{ page.url | absolute_url }}">
-  <meta property="og:locale"      content="{% if page.lang == 'pt' %}pt_BR{% elsif page.lang == 'es' %}es_ES{% else %}en_US{% endif %}">
-  {% if page.image %}
-  <meta property="og:image"       content="{{ page.image | absolute_url }}">
-  {% endif %}
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="{{ page.title }} | {{ site.title }}">
-  <meta name="twitter:description" content="{{ meta_desc }}">
-  {% if page.image %}
-  <meta name="twitter:image"       content="{{ page.image | absolute_url }}">
-  {% endif %}
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
 
-<!-- Language Switcher -->
 <div class="language-switcher">
+  {% comment %} 
+    Limpamos a URL atual de qualquer prefixo /pt/ ou /es/ para obter o caminho base
+  {% endcomment %}
   {% assign base_path = page.url | replace: '/pt/', '/' | replace: '/es/', '/' %}
+  
+  {% comment %} Garante que URLs vazias apontem para a raiz corretamente {% endcomment %}
   {% if base_path == "/" or base_path == "" %}{% assign base_path = "/index.html" %}{% endif %}
 
-  <a href="{{ base_path | prepend: site.baseurl }}"
-     class="{% if page.lang == 'en' %}active{% endif %}"
-     lang="en">EN</a>
-
-  <a href="{{ base_path | prepend: '/pt' | prepend: site.baseurl | replace: '//', '/' }}"
-     class="{% if page.lang == 'pt' %}active{% endif %}"
-     lang="pt">PT</a>
-
-  <a href="{{ base_path | prepend: '/es' | prepend: site.baseurl | replace: '//', '/' }}"
-     class="{% if page.lang == 'es' %}active{% endif %}"
-     lang="es">ES</a>
+  <a href="{{ base_path | prepend: site.baseurl }}" 
+     class="{% if page.lang == 'en' %}active{% endif %}">EN</a>
+     
+  <a href="{{ base_path | prepend: '/pt' | prepend: site.baseurl | replace: '//', '/' }}" 
+     class="{% if page.lang == 'pt' %}active{% endif %}">PT</a>
+     
+  <a href="{{ base_path | prepend: '/es' | prepend: site.baseurl | replace: '//', '/' }}" 
+     class="{% if page.lang == 'es' %}active{% endif %}">ES</a>
 </div>
 
-<!-- Header -->
 <header class="site-header">
   <h1 class="logo">GABRYELLA FACCHINI</h1>
   <hr>
-  <nav class="menu" aria-label="Main navigation">
-    {% assign t = site.data.translations.menu %}
+<nav class="menu">
+  {% assign t = site.data.translations.menu %}
+  
+  {% assign prefix = "" %}
+  {% if page.lang == "pt" %}{% assign prefix = "/pt/" %}
+  {% elsif page.lang == "es" %}{% assign prefix = "/es/" %}{% endif %}
 
-    {% assign prefix = "" %}
-    {% if page.lang == "pt" %}{% assign prefix = "/pt/" %}
-    {% elsif page.lang == "es" %}{% assign prefix = "/es/" %}{% endif %}
-
-    <a href="{{ prefix | append: 'index.html' | relative_url }}"
-       {% if page.url contains prefix and page.name == 'index.html' %}aria-current="page"{% endif %}>
-      {{ t.home[page.lang] }}
-    </a>
-    <a href="{{ prefix | append: 'about.html' | relative_url }}"
-       {% if page.name == 'about.html' %}aria-current="page"{% endif %}>
-      {{ t.about[page.lang] }}
-    </a>
-    <a href="{{ prefix | append: 'articles.html' | relative_url }}"
-       {% if page.name == 'articles.html' %}aria-current="page"{% endif %}>
-      {{ t.articles[page.lang] }}
-    </a>
-    <a href="{{ prefix | append: 'contact.html' | relative_url }}"
-       {% if page.name == 'contact.html' %}aria-current="page"{% endif %}>
-      {{ t.contact[page.lang] }}
-    </a>
-  </nav>
+  <a href="{{ prefix | append: 'index.html' | relative_url }}">{{ t.home[page.lang] }}</a>
+  <a href="{{ prefix | append: 'about.html' | relative_url }}">{{ t.about[page.lang] }}</a>
+  <a href="{{ prefix | append: 'articles.html' | relative_url }}">{{ t.articles[page.lang] }}</a>
+  <a href="{{ prefix | append: 'contact.html' | relative_url }}">{{ t.contact[page.lang] }}</a>
+</nav>
 </header>
 
-<!-- Main Content — sem classe .container aqui; cada página gerencia o seu próprio -->
-<main>
+<main class="container">
   {{ content }}
 </main>
 
-<!-- Footer -->
 <footer class="footer">
-  {% assign tf = site.data.translations.footer_tagline %}
-  © {{ site.time | date: "%Y" }} {{ tf[page.lang] | default: tf.en }} <br>
-
-  <div class="footer-links">
-    <a href="https://linkedin.com/in/gabryellafachini" target="_blank" rel="noopener noreferrer">LINKEDIN</a> |
-    <a href="https://github.com/gabyfachini" target="_blank" rel="noopener noreferrer">GITHUB</a>
+  © {{ site.time | date: "%Y" }} Developed by Gabryella Facchini | Portfolio & Business Tech Blog <br>
+  
+  <div style="margin-top: 10px; font-size: 0.65rem;">
+    <a href="https://linkedin.com/in/gabryellafachini" target="_blank" style="color: var(--muted); text-decoration: none;">LINKEDIN</a> | 
+    <a href="https://github.com/gabyfachini" target="_blank" style="color: var(--muted); text-decoration: none;">GITHUB</a>
   </div>
-
-  <p class="footer-location">São Paulo, Brazil</p>
+  
+  <p style="margin-top: 15px; letter-spacing: 1px;">São Paulo, Brazil</p>
 </footer>
 
-<!-- Theme Toggle -->
-<button id="themeToggle" aria-label="{{ site.data.translations.theme_toggle[page.lang] | default: 'Toggle theme' }}">
-  <img id="themeIcon" src="{{ '/assets/img/theme-light.png' | relative_url }}" alt="">
+<button id="themeToggle" aria-label="Alternar tema">
+  <img id="themeIcon" src="/assets/img/theme-light.png" alt="Tema">
 </button>
 
-<!-- JS externo -->
-<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+<script>
+  const toggle = document.getElementById("themeToggle");
+  const icon = document.getElementById("themeIcon");
+  const root = document.documentElement;
+
+  // Check LocalStorage to see if the user has a previously saved theme preference
+  const saved = localStorage.getItem("theme");
+  if (saved === "dark") {
+    root.classList.add("dark");
+    icon.src = "/assets/img/theme-dark.png";
+  }
+
+  // Event listener to handle the click and swap classes/images
+  toggle.addEventListener("click", () => {
+    root.classList.toggle("dark");
+    const isDark = root.classList.contains("dark");
+
+    // Update the icon source based on the current mode
+    icon.src = isDark
+      ? "/assets/img/theme-dark.png"
+      : "/assets/img/theme-light.png";
+
+    // Save the user's preference in the browser so it persists on refresh
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+</script>
 
 </body>
 </html>
