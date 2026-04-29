@@ -4,34 +4,51 @@ lang: en
 title: Home
 ---
 
-{% comment %} 1. Filtramos apenas posts em Inglês {% endcomment %}
-{% assign filtered_posts = site.posts | where: "lang", "en" %}
+{% assign t = site.data.translations %}
+{% assign filtered_posts = site.posts | where: "lang", page.lang %}
 {% assign hero = filtered_posts[0] %}
 
 {% if hero %}
+
 <section class="hero">
-  <img src="{{ hero.image | relative_url }}" alt="{{ hero.title }}">
+  <img
+    src="{{ hero.image | relative_url }}"
+    alt="Capa do artigo: {{ hero.title }}"
+    loading="eager">
   <div class="hero-text">
-    <h2>{{ hero.title }}</h2>
-    <p class="tagline">{{ hero.subtitle }}</p>
-    <p>{{ hero.excerpt | strip_html | truncatewords: 20 }}</p>
-    <a class="read-more" href="{{ hero.url | relative_url }}">Read More</a>
+    <div class="container">
+      <h2>{{ hero.title }}</h2>
+      <p class="tagline">{{ hero.subtitle }}</p>
+      <p>{{ hero.excerpt | strip_html | truncatewords: 20 }}</p>
+      <a class="read-more" href="{{ hero.url | relative_url }}">
+        {{ t.read_more[page.lang] }}
+      </a>
+    </div>
   </div>
 </section>
 
-<section class="grid">
-  {% comment %} 2. Percorremos os posts filtrados, pulando o hero {% endcomment %}
+<section class="grid-section container">
   {% for post in filtered_posts offset:1 limit:4 %}
   <article class="card">
     <a href="{{ post.url | relative_url }}">
-      <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+      <img
+        src="{{ post.image | relative_url }}"
+        alt="Capa do artigo: {{ post.title }}"
+        loading="lazy">
       <h3>{{ post.title }}</h3>
-      <p class="date">{{ post.date | date: "%B %d, %Y" }}</p>
+      <p class="date">
+        <time datetime="{{ post.date | date: '%Y-%m-%d' }}">
+          {{ post.date | date: t.date_format[page.lang] | default: t.date_format.en }}
+        </time>
+      </p>
       <p>{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
     </a>
   </article>
   {% endfor %}
-</section>
+</section><!-- .grid-section -->
+
 {% else %}
-  <p style="text-align:center;">No English articles found.</p>
+<section class="container">
+  <p class="empty-state">{{ t.no_hero[page.lang] }}</p>
+</section>
 {% endif %}

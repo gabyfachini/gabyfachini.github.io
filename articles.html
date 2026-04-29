@@ -4,60 +4,48 @@ lang: en
 title: Articles
 ---
 
-{% comment %} 
-  Buscamos as traduções para o título da página 
-{% endcomment %}
-{% assign t = site.data.translations.menu %}
+{% assign t = site.data.translations %}
+{% assign filtered_posts = site.posts | where: "lang", page.lang %}
 
-<section class="container">
-    <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; text-align: center; margin-top: 10px; margin-bottom: 20px;">
-      {{ t.articles[page.lang] }}
-    </h2>
+<section class="container articles-page">
+
+  <h2 class="page-title">
+    {{ t.menu.articles[page.lang] }}
+  </h2>
 
   <div class="articles-list">
-    {% comment %} 
-      FILTRO CRUCIAL: Filtra os posts onde o campo 'lang' no Front Matter 
-      coincide com o 'lang' desta página.
-    {% endcomment %}
-    {% assign filtered_posts = site.posts | where: "lang", page.lang %}
 
     {% for post in filtered_posts %}
-    <article style="display: flex; gap: 20px; margin-bottom: 30px; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 20px;">
-      
-      <div style="width: 150px; flex-shrink: 0;">
-        {% if post.image %}
-          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" style="width: 100%; border-radius: 4px;">
-        {% else %}
-          {% comment %} Imagem padrão caso o post não tenha uma {% endcomment %}
-          <img src="{{ '/assets/img/default-post.webp' | relative_url }}" style="width: 100%; border-radius: 4px;">
-        {% endif %}
+    <article class="article-item">
+
+      <div class="article-thumb">
+        <a href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
+          <img
+            src="{{ post.image | relative_url }}"
+            alt="Capa do artigo: {{ post.title }}"
+            loading="lazy">
+        </a>
       </div>
 
-      <div>
-        <p style="font-size: 0.8rem; color: var(--muted); margin: 0;">
-          {% comment %} Ajuste simples de data para cada idioma {% endcomment %}
-          {% if page.lang == 'en' %}
-            {{ post.date | date: "%B %d, %Y" }}
-          {% else %}
-            {{ post.date | date: "%d/%m/%Y" }}
-          {% endif %}
-        </p>
-        <h3 style="margin: 5px 0; font-family: 'Playfair Display', serif;">
-          <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: var(--text);">
-            {{ post.title }}
-          </a>
+      <div class="article-body">
+        <time class="article-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">
+          {{ post.date | date: t.date_format[page.lang] | default: t.date_format.en }}
+        </time>
+        <h3 class="article-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </h3>
-        <p style="font-size: 0.9rem; color: var(--text);">
+        <p class="article-excerpt">
           {{ post.excerpt | strip_html | truncatewords: 20 }}
         </p>
       </div>
 
     </article>
+
     {% else %}
-      {% comment %} Mensagem caso não existam posts no idioma {% endcomment %}
-      <p style="text-align: center; color: var(--muted);">
-        {% if page.lang == 'pt' %}Nenhum artigo encontrado.{% elsif page.lang == 'es' %}No se encontraron artículos.{% else %}No articles found.{% endif %}
-      </p>
+
+    <p class="empty-state">{{ t.no_articles[page.lang] }}</p>
+
     {% endfor %}
+
   </div>
 </section>

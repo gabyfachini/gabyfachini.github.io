@@ -16,3 +16,53 @@ menu:
     pt: "CONTATO"
     en: "CONTACT"
     es: "CONTACTO"
+
+no_articles:
+  pt: "Nenhum artigo encontrado."
+  en: "No articles found."
+  es: "No se encontraron artículos."
+
+no_hero:
+  pt: "Nenhum artigo em português encontrado."
+  en: "No English articles found."
+  es: "No se encontraron artículos en español."
+
+read_more:
+  pt: "Leia Mais"
+  en: "Read More"
+  es: "Leer Más"
+
+date_format:
+  pt: "%d/%m/%Y"
+  en: "%B %d, %Y"
+  es: "%d/%m/%Y"
+
+contact_title:
+  pt: "Vamos Conversar"
+  en: "Let's Connect"
+  es: "Conectemos"
+
+contact_body:
+  pt: "Estou sempre aberta para discutir novos projetos, ideias criativas ou oportunidades de fazer parte das suas visões. Atualmente, meu principal canal para networking profissional e consultas é o LinkedIn."
+  en: "I am always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Currently, my primary channel for professional networking and inquiries is LinkedIn."
+  es: "Siempre estoy abierta a discutir nuevos proyectos, ideas creativas u oportunidades de ser parte de sus visiones. Actualmente, mi canal principal para networking profesional es LinkedIn."
+
+contact_cta:
+  pt: "FALE COMIGO NO LINKEDIN"
+  en: "MESSAGE ME ON LINKEDIN"
+  es: "ESCRÍBEME EN LINKEDIN"
+
+footer_tagline:
+  pt: "Desenvolvido por Gabryella Facchini | Blog de Tecnologia & Negócios"
+  en: "Developed by Gabryella Facchini | Portfolio & Business Tech Blog"
+  es: "Desarrollado por Gabryella Facchini | Blog de Tecnología y Negocios"
+
+theme_toggle:
+  pt: "Alternar tema"
+  en: "Toggle theme"
+  es: "Cambiar tema"
+
+meta_description:
+  pt: "Blog de tecnologia, estratégia e impacto humano por Gabryella Facchini."
+  en: "Technology, strategy, and human impact blog by Gabryella Facchini."
+  es: "Blog de tecnología, estrategia e impacto humano por Gabryella Facchini."

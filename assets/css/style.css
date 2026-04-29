@@ -1,247 +1,598 @@
-/* --- Global Reset & Base Styles --- */
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Inter', sans-serif;
-  transition: background 0.3s, color 0.3s;
-}
+/* =============================================
+   assets/css/style.css
+   Blog Gabryella Facchini — sistema de design
+   ============================================= */
 
-/* Estilo global para links (Artigos e títulos) */
-a {
-  text-decoration: none;   /* Remove o sublinhado */
-  color: var(--text);      /* Usa a cor cinza escuro/preto que você definiu no :root */
-  transition: opacity 0.3s;
-}
-
-/* Efeito sutil ao passar o mouse */
-a:hover {
-  opacity: 0.7;
-}
-
-/* --- Theme Color Definitions --- */
+/* ─── 1. Tokens de design ─────────────────────────────────────────────── */
 :root {
-  --bg: #f7f5f2;
-  --text: #222;
-  --muted: #777;
-  --card: #ffffff;
+  --bg:         #fafaf8;
+  --surface:    #f2f1ed;
+  --text:       #1a1a1a;
+  --muted:      #888880;
+  --border:     #e0deda;
+  --accent:     #1a1a1a;
+  --radius:     4px;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans:  'Inter', system-ui, sans-serif;
+  --max-w:      1100px;
+  --transition: 0.25s ease;
 }
 
-.dark {
-  --bg: #181818;
-  --text: #eaeaea;
-  --muted: #999;
-  --card: #222;
+html.dark {
+  --bg:      #141414;
+  --surface: #1e1e1e;
+  --text:    #e8e8e4;
+  --muted:   #6a6a64;
+  --border:  #2e2e2e;
+  --accent:  #e8e8e4;
 }
 
-/* --- Header & Navigation --- */
-.site-header {
-  text-align: center;
-  padding: 40px 20px 10px;
-}
+/* ─── 2. Reset e base ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-.logo {
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 4px;
-  font-size: 1.6rem;
-}
+html { scroll-behavior: smooth; }
 
-.site-header hr {
-  width: 60%;
-  border: none;
-  border-top: 1px solid #ccc;
-  margin: 20px auto;
-}
-
-.menu a {
-  margin: 0 16px;
-  text-decoration: none;
+body {
+  background-color: var(--bg);
   color: var(--text);
-  font-size: 0.75rem;
-  letter-spacing: 2px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  transition: background-color var(--transition), color var(--transition);
 }
 
-/* --- Layout Container --- */
+img { display: block; max-width: 100%; height: auto; }
+a   { color: inherit; }
+
+/* ─── 3. Container ────────────────────────────────────────────────────── */
 .container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px 20px;
-}
-
-/* --- Hero Section & Grid --- */
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 80px;
-}
-
-.hero img, .card img {
   width: 100%;
-  object-fit: cover;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 5vw, 2rem);
 }
 
-.hero-text h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.6rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-}
-
-.card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
-}
-
-.card a {
-  color: var(--text);
-  display: block; /* Melhora a área de clique */
-}
-
-.card a:hover h3 {
-  color: var(--muted); /* O título fica levemente cinza ao passar o mouse */
-}
-
-/* --- About Page Specific Styles --- */
-.about-page {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-.about-header {
-  width: 100%;
-  margin-bottom: 30px;
-}
-
-.about-brand h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
-  line-height: 1.2;
-  margin: 0;
-  letter-spacing: 2px; /* Ajustado para o slogan longo */
-}
-
-.brand-line {
-  border: none;
-  border-top: 1.5px solid var(--text);
-  margin: 20px 0;
-  width: 100%;
-}
-
-.about-content {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr; /* Texto largo na esquerda, imagem na direita */
-  gap: 40px;
-  align-items: start;
-  margin-top: 20px;
-}
-
-.about-content h3 {
-  font-size: 0.8rem;
-  letter-spacing: 2px;
-  margin-top: 30px;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.about-content p {
-  line-height: 1.6;
-  font-size: 0.95rem;
-  margin-bottom: 15px;
-}
-
-.side-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* --- Global Image Effects --- */
-img {
-  filter: grayscale(100%);
-  transition: filter 0.5s ease;
-  display: block;
-}
-
-img:hover {
-  filter: grayscale(0%);
-}
-
-/* --- Footer --- */
-.footer {
-  text-align: center;
-  font-size: 0.7rem;
-  padding: 40px 10px;
-  color: var(--muted);
-}
-
-/* --- Switchers (Theme & Language) --- */
-#themeToggle, 
+/* ─── 4. Language switcher ────────────────────────────────────────────── */
 .language-switcher {
-  position: fixed;
-  top: 20px;
-  z-index: 1000;
-}
-
-#themeToggle {
-  right: 20px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-#themeToggle img {
-  width: 34px;
-  height: 34px;
-  filter: none !important; /* Ícone de tema sempre colorido */
-}
-
-.language-switcher {
-  right: 80px;
   display: flex;
-  gap: 15px;
-  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 0.6rem clamp(1rem, 5vw, 2rem);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid var(--border);
 }
 
 .language-switcher a {
   text-decoration: none;
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: var(--text);
-  transition: all 0.2s ease;
-  filter: grayscale(0%) !important;
-  opacity: 0.6;
+  color: var(--muted);
+  transition: color var(--transition);
 }
 
+.language-switcher a:hover,
 .language-switcher a.active {
-  opacity: 1;
-  border-bottom: 2px solid var(--text);
-  padding-bottom: 2px;
+  color: var(--text);
+  font-weight: 500;
 }
 
-.language-switcher a:hover {
+/* ─── 5. Header e nav ─────────────────────────────────────────────────── */
+.site-header {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding: 2rem clamp(1rem, 5vw, 2rem) 0;
+}
+
+.logo {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--text);
+}
+
+.site-header hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0.75rem 0;
+}
+
+.menu {
+  display: flex;
+  gap: 2rem;
+  padding-bottom: 1.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--muted);
+  transition: color var(--transition);
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ─── 6. Main ─────────────────────────────────────────────────────────── */
+main {
+  min-height: 60vh;
+  padding-bottom: 4rem;
+}
+
+/* ─── 7. Hero ─────────────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  filter: brightness(0.55);
+  display: block;
+}
+
+/*
+  .hero-text é full-width com gradiente.
+  O .container dentro dele alinha o texto com o header e o grid-section,
+  garantindo que a margem esquerda seja sempre a mesma.
+*/
+.hero-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: clamp(3rem, 8vw, 6rem);
+  padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 100%);
+  color: #fff;
+}
+
+.hero-text .container {
+  /* Redefine apenas o que precisa — herda max-width e padding-inline do .container */
+}
+
+.hero-text h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.hero-text .tagline {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.hero-text p:not(.tagline) {
+  max-width: 55ch;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-bottom: 1.25rem;
+}
+
+.read-more {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid rgba(255,255,255,0.7);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.read-more:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* ─── 8. Grid de cards ────────────────────────────────────────────────── */
+/*
+  .grid-section usa .container como pai, então herda
+  padding-inline e max-width automaticamente.
+  Apenas define o layout de grid aqui.
+*/
+.grid-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  border-radius: var(--radius);
+  transition: opacity var(--transition);
+}
+
+.card a:hover img { opacity: 0.85; }
+
+.card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-top: 0.25rem;
+}
+
+.card .date {
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.card p:last-child {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ─── 9. Empty state ──────────────────────────────────────────────────── */
+.empty-state {
+  text-align: center;
+  color: var(--muted);
+  padding: 4rem 0;
+}
+
+/* ─── 10. Page title (articles, contact) ─────────────────────────────── */
+.page-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  text-align: center;
+  margin-top: 2.5rem;
+  margin-bottom: 1.75rem;
+}
+
+/* ─── 11. Articles page ──────────────────────────────────────────────── */
+.articles-page {
+  padding-top: 1rem;
+}
+
+.articles-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.article-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.article-thumb {
+  flex-shrink: 0;
+  width: 150px;
+}
+
+.article-thumb img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  border-radius: var(--radius);
+  transition: opacity var(--transition);
+}
+
+.article-thumb a:hover img { opacity: 0.85; }
+
+.article-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.article-date {
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.article-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.article-title a {
+  text-decoration: none;
+  color: var(--text);
+  transition: color var(--transition);
+}
+
+.article-title a:hover { color: var(--muted); }
+
+.article-excerpt {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 0.2rem;
+}
+
+/* ─── 12. About page ─────────────────────────────────────────────────── */
+.about-page {
+  padding-top: 1rem;
+}
+
+.about-header {
+  padding: 3rem 0 2rem;
+}
+
+.about-brand h1 {
+  font-family: var(--font-sans);
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  line-height: 1.4;
+}
+
+.brand-line {
+  border: none;
+  border-top: 2px solid var(--text);
+  margin-top: 1rem;
+  width: 60px;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 4rem;
+  align-items: start;
+  padding-bottom: 4rem;
+}
+
+.text-column h3 {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.text-column h3:first-child { margin-top: 0; }
+
+.text-column p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.side-img {
+  width: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
+/* ─── 13. Contact page ───────────────────────────────────────────────── */
+.contact-page {
+  text-align: center;
+  max-width: 600px;
+  padding-top: 3.5rem;
+  padding-bottom: 4rem;
+}
+
+.contact-body {
+  font-family: var(--font-sans);
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.contact-link a {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: color var(--transition);
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  transition: transform var(--transition), color var(--transition);
+}
+
+.contact-link a:hover .contact-icon {
   transform: scale(1.1);
-  opacity: 1;
+  color: #0077b5;
 }
 
-/* --- Responsiveness --- */
+.contact-cta {
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  transition: color var(--transition);
+}
+
+.contact-link a:hover .contact-cta { color: #0077b5; }
+
+/* ─── 14. Post page ──────────────────────────────────────────────────── */
+.post {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  max-width: 720px;
+}
+
+.post-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-header h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.post-content {
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.post-content h2 { font-family: var(--font-serif); font-size: 1.6rem; margin: 2.5rem 0 0.75rem; }
+.post-content h3 { font-size: 1.1rem; font-weight: 500; margin: 2rem 0 0.5rem; letter-spacing: 0.05em; }
+.post-content p  { margin-bottom: 1.25rem; }
+.post-content a  { text-decoration: underline; text-underline-offset: 3px; }
+.post-content img { border-radius: var(--radius); margin: 1.5rem 0; }
+.post-content blockquote {
+  border-left: 3px solid var(--border);
+  padding-left: 1.25rem;
+  color: var(--muted);
+  margin: 1.5rem 0;
+  font-style: italic;
+}
+.post-content code {
+  background: var(--surface);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  font-size: 0.88em;
+}
+.post-content pre {
+  background: var(--surface);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+.post-content pre code { background: none; padding: 0; }
+
+/* ─── 15. Footer ─────────────────────────────────────────────────────── */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem clamp(1rem, 5vw, 2rem);
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  line-height: 1.8;
+}
+
+.footer-links {
+  margin-top: 0.5rem;
+}
+
+.footer-links a {
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  transition: color var(--transition);
+}
+
+.footer-links a:hover { color: var(--text); }
+
+.footer-location {
+  margin-top: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+/* ─── 16. Theme toggle button ─────────────────────────────────────────── */
+#themeToggle {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background-color var(--transition), border-color var(--transition), transform 0.15s;
+  z-index: 100;
+}
+
+#themeToggle:hover { transform: scale(1.1); }
+
+#themeIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* ─── 17. Responsividade ─────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .hero, .grid, .about-content {
+  .hero img { height: 380px; }
+
+  .about-content {
     grid-template-columns: 1fr;
-    display: block;
-  }
-  
-  .about-brand h1 {
-    font-size: 1.8rem;
+    gap: 2rem;
   }
 
-  .side-img {
-    margin-top: 30px;
+  .image-column { order: -1; }
+
+  .side-img { max-height: 280px; object-fit: cover; }
+
+  .article-item {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .article-thumb { width: 100%; }
+
+  .article-thumb img { aspect-ratio: 16/9; }
+
+  .menu {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── 18. Acessibilidade ─────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
