@@ -1,37 +1,61 @@
 ---
 layout: default
 lang: en
-title: About Me
+title: Articles
 ---
 
-<article class="about-page">
-  <section class="about-header">
-    <div class="about-brand">
-      <h1>TECHNOLOGY, STRATEGY, AND<br>HUMAN IMPACT</h1>
-      <hr class="brand-line">
-    </div>
-  </section>
+{% comment %} 
+  Buscamos as traduções para o título da página 
+{% endcomment %}
+{% assign t = site.data.translations.menu %}
 
-  <section class="about-content">
-    <div class="text-column">
-      <h3>WHO I AM</h3>
-      <p>
-        Hi! I'm Gaby, passionate about sports, connections, and cultures. I believe people are what truly matter—a perspective strengthened during my military service in the Brazilian Air Force. I've always been fascinated by how businesses work, shaping my strategic outlook.
+<section class="container">
+  <h2 class="page-title">{{ t.articles[page.lang] }}</h2>
+
+  <div class="articles-list">
+    {% comment %} 
+      FILTRO CRUCIAL: Filtra os posts onde o campo 'lang' no Front Matter 
+      coincide com o 'lang' desta página.
+    {% endcomment %}
+    {% assign filtered_posts = site.posts | where: "lang", page.lang %}
+
+    {% for post in filtered_posts %}
+    <article class="article-row">
+
+      <div class="article-thumb">
+        {% if post.image %}
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+        {% else %}
+          {% comment %} Imagem padrão caso o post não tenha uma {% endcomment %}
+          <img src="{{ '/assets/img/default-post.webp' | relative_url }}" alt="{{ post.title }}">
+        {% endif %}
+      </div>
+
+      <div>
+        <p class="article-date">
+          {% comment %} Ajuste simples de data para cada idioma {% endcomment %}
+          {% if page.lang == 'en' %}
+            {{ post.date | date: "%B %d, %Y" }}
+          {% else %}
+            {{ post.date | date: "%d/%m/%Y" }}
+          {% endif %}
+        </p>
+        <h3>
+          <a href="{{ post.url | relative_url }}">
+            {{ post.title }}
+          </a>
+        </h3>
+        <p class="article-excerpt">
+          {{ post.excerpt | strip_html | truncatewords: 20 }}
+        </p>
+      </div>
+
+    </article>
+    {% else %}
+      {% comment %} Mensagem caso não existam posts no idioma {% endcomment %}
+      <p class="empty-state">
+        {% if page.lang == 'pt' %}Nenhum artigo encontrado.{% elsif page.lang == 'es' %}No se encontraron artículos.{% else %}No articles found.{% endif %}
       </p>
-
-      <h3>ACADEMIC BACKGROUND</h3>
-      <p>
-        Food Engineer from USP and Business graduate from FAM, I am currently studying Information Systems at XP Educação. I specialized in Aircraft Electronics and Radars at EEAR. Currently, I am self-studying Software and Machine Learning, aiming for a Master's in AI in Europe.
-      </p>
-
-      <h3>A MULTIDISCIPLINARY CAREER</h3>
-      <p>
-        My path includes roles in Admin, Operations, UX, Development, and Software Architecture. I also founded an e-commerce business, gaining a 360° view of digital systems. Leadership and empathy are my pillars: I've been a volunteer since 2019 and a community leader since my military application days.
-      </p>
-    </div>
-
-    <div class="image-column">
-      <img src="/assets/img/about-side.webp" alt="Gabryella Facchini" class="side-img">
-    </div>
-  </section>
-</article>
+    {% endfor %}
+  </div>
+</section>

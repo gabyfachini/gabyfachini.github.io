@@ -5,46 +5,61 @@
   <title>{{ page.title }} | {{ site.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
 
-<div class="language-switcher">
-  {% comment %} 
-    Limpamos a URL atual de qualquer prefixo /pt/ ou /es/ para obter o caminho base
-  {% endcomment %}
-  {% assign base_path = page.url | replace: '/pt/', '/' | replace: '/es/', '/' %}
-  
-  {% comment %} Garante que URLs vazias apontem para a raiz corretamente {% endcomment %}
-  {% if base_path == "/" or base_path == "" %}{% assign base_path = "/index.html" %}{% endif %}
+{% comment %}
+  Limpamos a URL atual de qualquer prefixo /pt/ ou /es/ para obter o caminho base
+{% endcomment %}
+{% assign base_path = page.url | replace: '/pt/', '/' | replace: '/es/', '/' %}
 
-  <a href="{{ base_path | prepend: site.baseurl }}" 
-     class="{% if page.lang == 'en' %}active{% endif %}">EN</a>
-     
-  <a href="{{ base_path | prepend: '/pt' | prepend: site.baseurl | replace: '//', '/' }}" 
-     class="{% if page.lang == 'pt' %}active{% endif %}">PT</a>
-     
-  <a href="{{ base_path | prepend: '/es' | prepend: site.baseurl | replace: '//', '/' }}" 
-     class="{% if page.lang == 'es' %}active{% endif %}">ES</a>
+{% comment %} Garante que URLs vazias apontem para a raiz corretamente {% endcomment %}
+{% if base_path == "/" or base_path == "" %}{% assign base_path = "/index.html" %}{% endif %}
+
+{% assign url_en = base_path | prepend: site.baseurl %}
+{% assign url_pt = base_path | prepend: '/pt' | prepend: site.baseurl | replace: '//', '/' %}
+{% assign url_es = base_path | prepend: '/es' | prepend: site.baseurl | replace: '//', '/' %}
+
+<!-- SELETOR DE IDIOMA: agora é um único <select>, no lugar dos 3 links -->
+<div class="language-switcher">
+  <select id="langSelect" onchange="if(this.value) window.location.href=this.value;">
+    <option value="{{ url_en }}" {% if page.lang == 'en' %}selected{% endif %}>EN</option>
+    <option value="{{ url_pt }}" {% if page.lang == 'pt' %}selected{% endif %}>PT</option>
+    <option value="{{ url_es }}" {% if page.lang == 'es' %}selected{% endif %}>ES</option>
+  </select>
 </div>
 
 <header class="site-header">
   <h1 class="logo">GABRYELLA FACCHINI</h1>
+  <span class="site-subtitle">technology, strategy &amp; human impact</span>
   <hr>
-<nav class="menu">
-  {% assign t = site.data.translations.menu %}
-  
-  {% assign prefix = "" %}
-  {% if page.lang == "pt" %}{% assign prefix = "/pt/" %}
-  {% elsif page.lang == "es" %}{% assign prefix = "/es/" %}{% endif %}
+  <nav class="menu">
+    {% assign t = site.data.translations.menu %}
 
-  <a href="{{ prefix | append: 'index.html' | relative_url }}">{{ t.home[page.lang] }}</a>
-  <a href="{{ prefix | append: 'about.html' | relative_url }}">{{ t.about[page.lang] }}</a>
-  <a href="{{ prefix | append: 'articles.html' | relative_url }}">{{ t.articles[page.lang] }}</a>
-  <a href="{{ prefix | append: 'contact.html' | relative_url }}">{{ t.contact[page.lang] }}</a>
-</nav>
+    {% assign prefix = "" %}
+    {% if page.lang == "pt" %}{% assign prefix = "/pt/" %}
+    {% elsif page.lang == "es" %}{% assign prefix = "/es/" %}{% endif %}
+
+    <a href="{{ prefix | append: 'index.html' | relative_url }}"
+       class="{% if page.url contains 'index' or page.url == '/' or page.url == '/pt/' or page.url == '/es/' %}active{% endif %}">
+      {{ t.home[page.lang] }}
+    </a>
+    <a href="{{ prefix | append: 'about.html' | relative_url }}"
+       class="{% if page.url contains 'about' %}active{% endif %}">
+      {{ t.about[page.lang] }}
+    </a>
+    <a href="{{ prefix | append: 'articles.html' | relative_url }}"
+       class="{% if page.url contains 'articles' %}active{% endif %}">
+      {{ t.articles[page.lang] }}
+    </a>
+    <a href="{{ prefix | append: 'contact.html' | relative_url }}"
+       class="{% if page.url contains 'contact' %}active{% endif %}">
+      {{ t.contact[page.lang] }}
+    </a>
+  </nav>
 </header>
 
 <main class="container">
@@ -52,14 +67,14 @@
 </main>
 
 <footer class="footer">
-  © {{ site.time | date: "%Y" }} Developed by Gabryella Facchini | Portfolio & Business Tech Blog <br>
-  
-  <div style="margin-top: 10px; font-size: 0.65rem;">
-    <a href="https://linkedin.com/in/gabryellafachini" target="_blank" style="color: var(--muted); text-decoration: none;">LINKEDIN</a> | 
-    <a href="https://github.com/gabyfachini" target="_blank" style="color: var(--muted); text-decoration: none;">GITHUB</a>
+  © {{ site.time | date: "%Y" }} Developed by Gabryella Facchini | Portfolio &amp; Business Tech Blog <br>
+
+  <div class="footer-links">
+    <a href="https://linkedin.com/in/gabryellafachini" target="_blank">LINKEDIN</a> |
+    <a href="https://github.com/gabyfachini" target="_blank">GITHUB</a>
   </div>
-  
-  <p style="margin-top: 15px; letter-spacing: 1px;">São Paulo, Brazil</p>
+
+  <p class="footer-location">São Paulo, Brazil</p>
 </footer>
 
 <button id="themeToggle" aria-label="Alternar tema">
