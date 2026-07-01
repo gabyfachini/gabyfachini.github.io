@@ -1,493 +1,190 @@
-/* =======================================================
-   FONTS
-   Playfair Display -> headings, wordmark, tagline (italic)
-   Inter             -> body copy, UI, nav, labels
-   ======================================================= */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap');
-
-/* =======================================================
-   THEME TOKENS
-   ======================================================= */
-:root {
-  --bg: #F7F3EC;        /* warm cream */
-  --bg-alt: #EFE7D8;    /* soft beige band for alternating sections */
-  --card: #FFFFFF;
-  --text: #23252B;      /* near-black charcoal */
-  --muted: #8B8579;
-  --navy: #1E2A3D;      /* deep navy — buttons, borders, accents */
-  --gold: #C9A876;      /* warm gold — accents, hovers, checkmarks */
-  --line: rgba(30, 42, 61, 0.12);
-}
-
-.dark {
-  --bg: #14161C;
-  --bg-alt: #1B1E26;
-  --card: #1F222B;
-  --text: #ECE7DD;
-  --muted: #9B968C;
-  --navy: #C9A876;      /* accent flips to gold in dark mode */
-  --gold: #E8C888;
-  --line: rgba(232, 200, 136, 0.18);
-}
-
-/* =======================================================
-   RESET & BASE
-   ======================================================= */
-* { box-sizing: border-box; }
-
+/* --- Global Reset & Base Styles --- */
 body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
   transition: background 0.3s, color 0.3s;
-  -webkit-font-smoothing: antialiased;
 }
 
+/* Estilo global para links (Artigos e títulos) */
 a {
-  text-decoration: none;
-  color: var(--text);
-  transition: opacity 0.25s, color 0.25s;
+  text-decoration: none;   /* Remove o sublinhado */
+  color: var(--text);      /* Usa a cor cinza escuro/preto que você definiu no :root */
+  transition: opacity 0.3s;
 }
 
-a:hover { opacity: 0.7; }
-
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 600;
-  margin: 0;
-  color: var(--text);
+/* Efeito sutil ao passar o mouse */
+a:hover {
+  opacity: 0.7;
 }
 
-/* Elegant italic accent used for taglines / hand-written feel,
-   without pulling in a third typeface. */
-.script,
-.tagline {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-weight: 500;
-  color: var(--navy);
+/* --- Theme Color Definitions --- */
+:root {
+  --bg: #f7f5f2;
+  --text: #222;
+  --muted: #777;
+  --card: #ffffff;
 }
 
-/* =======================================================
-   HEADER & NAVIGATION
-   ======================================================= */
+.dark {
+  --bg: #181818;
+  --text: #eaeaea;
+  --muted: #999;
+  --card: #222;
+}
+
+/* --- Header & Navigation --- */
 .site-header {
   text-align: center;
-  padding: 36px 20px 18px;
-  background: var(--bg);
+  padding: 40px 20px 10px;
 }
 
 .logo {
   font-family: 'Playfair Display', serif;
-  letter-spacing: 5px;
-  font-size: 1.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--text);
-}
-
-/* Signature line — appears under the wordmark on every page,
-   echoing the "COACHING by Kimberly" treatment in the reference. */
-.site-header .site-subtitle {
-  display: block;
-  margin-top: 4px;
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 0.95rem;
-  color: var(--gold);
-  letter-spacing: 0.5px;
+  letter-spacing: 4px;
+  font-size: 1.6rem;
 }
 
 .site-header hr {
   width: 60%;
-  max-width: 420px;
   border: none;
-  border-top: 1px solid var(--line);
-  margin: 22px auto;
-}
-
-.menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  border-top: 1px solid #ccc;
+  margin: 20px auto;
 }
 
 .menu a {
   margin: 0 16px;
   text-decoration: none;
   color: var(--text);
-  font-size: 0.72rem;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  font-weight: 600;
-  padding-bottom: 4px;
-  border-bottom: 1px solid transparent;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
 }
 
-.menu a:hover,
-.menu a.active {
-  opacity: 1;
-  border-bottom-color: var(--gold);
-}
-
-/* =======================================================
-   LAYOUT CONTAINER
-   ======================================================= */
+/* --- Layout Container --- */
 .container {
   max-width: 1100px;
   margin: auto;
-  padding: 60px 20px;
+  padding: 40px 20px;
 }
 
-/* =======================================================
-   HERO (index.html)
-   ======================================================= */
+/* --- Hero Section & Grid --- */
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: center;
-  max-width: 1100px;
-  margin: 0 auto 90px;
-  padding: 0 20px;
+  gap: 40px;
+  margin-bottom: 80px;
 }
 
-.hero img {
+.hero img, .card img {
   width: 100%;
-  aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 2px;
-}
-
-.hero-text {
-  padding: 20px 0;
-}
-
-.hero-text .tagline {
-  display: block;
-  font-size: 1.3rem;
-  margin-bottom: 14px;
 }
 
 .hero-text h2 {
-  font-size: 2.4rem;
-  line-height: 1.2;
-  margin-bottom: 18px;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
 }
 
-.hero-text p {
-  color: var(--muted);
-  font-size: 0.98rem;
-  margin-bottom: 24px;
-}
-
-.read-more {
-  display: inline-block;
-  background: var(--navy);
-  color: var(--bg);
-  font-size: 0.72rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 600;
-  padding: 14px 30px;
-  border-radius: 2px;
-  transition: opacity 0.25s, transform 0.25s;
-}
-
-.read-more:hover {
-  opacity: 0.88;
-  transform: translateY(-1px);
-}
-
-/* =======================================================
-   ARTICLE GRID (index.html cards)
-   ======================================================= */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 44px;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 70px 20px;
-  background: var(--bg-alt);
-  border-radius: 4px;
+  gap: 40px;
 }
-
-.card {
-  background: var(--card);
-  border-radius: 3px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(30, 42, 61, 0.06);
-  transition: transform 0.25s, box-shadow 0.25s;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(30, 42, 61, 0.1);
-}
-
-.card img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-}
-
-.card a { color: var(--text); display: block; }
 
 .card h3 {
-  font-size: 1.2rem;
-  padding: 18px 20px 4px;
-}
-
-.card .date {
-  font-size: 0.7rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--gold);
-  padding: 0 20px;
-  margin: 6px 0;
-}
-
-.card p:not(.date) {
-  padding: 0 20px 20px;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.card a:hover h3 { color: var(--navy); }
-
-/* =======================================================
-   ARTICLES LISTING PAGE
-   ======================================================= */
-.page-title {
   font-family: 'Playfair Display', serif;
-  font-size: 2.1rem;
-  text-align: center;
-  margin-bottom: 50px;
+  font-size: 1.4rem;
 }
 
-.articles-list {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
+.card a {
+  color: var(--text);
+  display: block; /* Melhora a área de clique */
+}
+
+.card a:hover h3 {
+  color: var(--muted); /* O título fica levemente cinza ao passar o mouse */
+}
+
+/* --- About Page Specific Styles --- */
+.about-page {
   max-width: 900px;
   margin: 0 auto;
+  padding: 40px 20px;
 }
 
-.article-row {
-  display: flex;
-  gap: 26px;
-  align-items: center;
-  background: var(--card);
-  border-radius: 3px;
-  padding: 18px;
-  box-shadow: 0 4px 16px rgba(30, 42, 61, 0.05);
-  transition: transform 0.2s, box-shadow 0.2s;
+.about-header {
+  width: 100%;
+  margin-bottom: 30px;
 }
-
-.article-row:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(30, 42, 61, 0.09);
-}
-
-.article-thumb {
-  width: 150px;
-  flex-shrink: 0;
-  border-radius: 3px;
-  overflow: hidden;
-}
-
-.article-thumb img { width: 100%; height: 100%; object-fit: cover; }
-
-.article-date {
-  font-size: 0.72rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin: 0 0 6px;
-}
-
-.article-row h3 {
-  margin: 0 0 8px;
-  font-size: 1.25rem;
-}
-
-.article-row h3 a { color: var(--text); }
-.article-row h3 a:hover { color: var(--navy); opacity: 1; }
-
-.article-excerpt {
-  font-size: 0.92rem;
-  color: var(--muted);
-  margin: 0;
-}
-
-.empty-state {
-  text-align: center;
-  color: var(--muted);
-  font-style: italic;
-  padding: 40px 0;
-}
-
-/* =======================================================
-   ABOUT PAGE
-   ======================================================= */
-.about-page {
-  max-width: 950px;
-  margin: 0 auto;
-  padding: 20px 20px 80px;
-}
-
-.about-header { width: 100%; margin-bottom: 10px; text-align: center; }
 
 .about-brand h1 {
-  font-size: 2.1rem;
-  line-height: 1.3;
-  letter-spacing: 1px;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: 2px; /* Ajustado para o slogan longo */
 }
 
 .brand-line {
   border: none;
-  border-top: 1.5px solid var(--gold);
-  margin: 26px auto;
-  width: 90px;
+  border-top: 1.5px solid var(--text);
+  margin: 20px 0;
+  width: 100%;
 }
 
 .about-content {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 50px;
+  grid-template-columns: 1.5fr 1fr; /* Texto largo na esquerda, imagem na direita */
+  gap: 40px;
   align-items: start;
   margin-top: 20px;
 }
 
 .about-content h3 {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 2.5px;
-  margin-top: 34px;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  margin-top: 30px;
   text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 700;
+  color: var(--muted);
 }
-
-.about-content h3:first-child { margin-top: 0; }
 
 .about-content p {
-  line-height: 1.75;
-  font-size: 0.97rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
   margin-bottom: 15px;
-  color: var(--text);
 }
-
-.image-column { position: sticky; top: 40px; }
 
 .side-img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 3px;
 }
 
-/* =======================================================
-   CONTACT PAGE
-   ======================================================= */
-.contact-section {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 70px 20px;
-}
-
-.contact-section h2 {
-  font-size: 2.3rem;
-  margin-bottom: 20px;
-}
-
-.contact-section .lead {
-  color: var(--muted);
-  line-height: 1.7;
-  margin-bottom: 44px;
-  font-size: 0.98rem;
-}
-
-.contact-link {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.contact-link svg {
-  margin-bottom: 12px;
-  transition: transform 0.3s ease, color 0.3s ease;
-  color: var(--navy);
-}
-
-.contact-link a:hover svg { transform: scale(1.1); color: var(--gold); }
-
-.contact-link p {
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  font-size: 0.82rem;
-  text-transform: uppercase;
-  transition: color 0.3s;
-}
-
-.contact-link a:hover p { color: var(--gold); opacity: 1; }
-
-/* =======================================================
-   GLOBAL IMAGE TREATMENT
-   ======================================================= */
+/* --- Global Image Effects --- */
 img {
   filter: grayscale(100%);
   transition: filter 0.5s ease;
   display: block;
 }
 
-img:hover { filter: grayscale(0%); }
+img:hover {
+  filter: grayscale(0%);
+}
 
-/* =======================================================
-   FOOTER
-   ======================================================= */
+/* --- Footer --- */
 .footer {
   text-align: center;
   font-size: 0.7rem;
-  letter-spacing: 1px;
-  padding: 46px 10px;
+  padding: 40px 10px;
   color: var(--muted);
-  border-top: 1px solid var(--line);
-  margin-top: 40px;
 }
 
-.footer-links {
-  margin-top: 10px;
-  font-size: 0.65rem;
-}
-
-.footer-links a {
-  color: var(--muted);
-  text-decoration: none;
-  letter-spacing: 1.5px;
-}
-
-.footer-links a:hover { color: var(--gold); opacity: 1; }
-
-.footer-location {
-  margin-top: 15px;
-  letter-spacing: 1px;
-}
-
-/* =======================================================
-   SWITCHERS — theme toggle + language SELECT dropdown
-   ======================================================= */
-#themeToggle,
+/* --- Switchers (Theme & Language) --- */
+#themeToggle, 
 .language-switcher {
   position: fixed;
-  top: 22px;
+  top: 20px;
   z-index: 1000;
 }
 
@@ -500,74 +197,51 @@ img:hover { filter: grayscale(0%); }
 }
 
 #themeToggle img {
-  width: 32px;
-  height: 32px;
-  filter: none !important;
+  width: 34px;
+  height: 34px;
+  filter: none !important; /* Ícone de tema sempre colorido */
 }
 
-/* Language switcher is now a single <select> instead of 3 links,
-   styled to sit quietly next to the theme toggle. */
 .language-switcher {
-  right: 66px;
+  right: 80px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
 }
 
-.language-switcher select {
-  appearance: none;
-  -webkit-appearance: none;
-  background: var(--card);
+.language-switcher a {
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: bold;
   color: var(--text);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 7px 32px 7px 16px;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: border-color 0.25s, box-shadow 0.25s;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' stroke='%238B8579' stroke-width='1.5' fill='none' fill-rule='evenodd' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
+  transition: all 0.2s ease;
+  filter: grayscale(0%) !important;
+  opacity: 0.6;
 }
 
-.language-switcher select:hover,
-.language-switcher select:focus {
-  border-color: var(--gold);
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(201, 168, 118, 0.25);
+.language-switcher a.active {
+  opacity: 1;
+  border-bottom: 2px solid var(--text);
+  padding-bottom: 2px;
 }
 
-/* =======================================================
-   RESPONSIVENESS
-   ======================================================= */
+.language-switcher a:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* --- Responsiveness --- */
 @media (max-width: 768px) {
-  .hero,
-  .grid,
-  .about-content {
+  .hero, .grid, .about-content {
     grid-template-columns: 1fr;
     display: block;
   }
+  
+  .about-brand h1 {
+    font-size: 1.8rem;
+  }
 
-  .hero-text { padding-top: 26px; }
-
-  .grid { padding: 50px 20px; }
-  .card:not(:last-child) { margin-bottom: 30px; }
-
-  .about-brand h1 { font-size: 1.7rem; }
-
-  .image-column {
-    position: static;
+  .side-img {
     margin-top: 30px;
   }
-
-  .article-row { flex-direction: column; align-items: flex-start; }
-  .article-thumb { width: 100%; }
-
-  #themeToggle,
-  .language-switcher {
-    top: 14px;
-  }
-
-  .language-switcher { right: 60px; }
 }
