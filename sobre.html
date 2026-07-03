@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gabryella Facchini — Portfólio &amp; Blog de Tecnologia</title>
-<meta name="description" content="Blog pessoal de Gabryella Facchini: desenvolvimento, dados e carreira em tecnologia, em português, inglês e espanhol.">
+<title>Sobre — Gabryella Facchini</title>
+<meta name="description" content="Conheça a Gabryella Facchini: desenvolvedora front-end e de dados, criadora deste blog trilíngue de tecnologia.">
 
-<!-- Set theme before first paint to avoid flashing the wrong mode -->
 <script>
   (function () {
     var saved = localStorage.getItem('gf-theme');
@@ -30,8 +29,8 @@
 
     <nav class="main-nav" aria-label="Navegação principal">
       <ul>
-        <li><a href="index.html" data-i18n="nav_home" aria-current="page">Início</a></li>
-        <li><a href="sobre.html" data-i18n="nav_about">Sobre</a></li>
+        <li><a href="index.html" data-i18n="nav_home">Início</a></li>
+        <li><a href="sobre.html" data-i18n="nav_about" aria-current="page">Sobre</a></li>
         <li><a href="artigos.html" data-i18n="nav_articles">Artigos</a></li>
         <li><a href="contato.html" data-i18n="nav_contact">Contato</a></li>
       </ul>
@@ -57,75 +56,81 @@
 
 <main>
 
-  <!-- HERO -->
-  <section class="hero">
+  <!-- ABOUT HERO -->
+  <section class="about-hero">
     <div class="container">
       <div class="hero-visual">
-        <div class="arch-frame">
-          <span class="initials">GF</span>
-        </div>
-        <div class="sticker" data-i18n="hero_sticker">vamos criar algo incrível?</div>
+        <div class="arch-frame"><span class="initials">GF</span></div>
       </div>
-      <div class="hero-copy">
-        <span class="eyebrow" data-i18n="hero_eyebrow">Oi, prazer!</span>
-        <h1 data-i18n="hero_title">Tecnologia com propósito, contada de forma simples.</h1>
-        <p data-i18n="hero_text">Sou Gabryella Facchini, desenvolvedora e criadora de conteúdo.</p>
-        <div class="hero-actions">
-          <a href="artigos.html" class="btn btn-primary" data-i18n="hero_cta_primary">Ver artigos</a>
-          <a href="contato.html" class="btn btn-ghost" data-i18n="hero_cta_secondary">Fale comigo</a>
-        </div>
+      <div>
+        <span class="eyebrow" data-i18n="about_eyebrow">Sobre mim</span>
+        <h1 data-i18n="about_title">Oi, eu sou a Gabryella!</h1>
+        <p data-i18n="about_text1">Desenvolvedora e apaixonada por transformar ideias em produtos digitais.</p>
+        <p data-i18n="about_text2">Este blog nasceu para ser um portfólio vivo.</p>
       </div>
     </div>
   </section>
 
-  <!-- VALUE / "IMAGINE" SECTION -->
-  <section class="value-section">
-    <div class="container">
-      <div class="section-title">
-        <span class="eyebrow" data-i18n="value_eyebrow">O que você vai encontrar por aqui</span>
-        <h2 data-i18n="value_title">Imagine se você pudesse…</h2>
-      </div>
-      <div class="checklist-grid">
-        <div class="checklist-item">
-          <span class="check">✓</span>
-          <div><h3 data-i18n="value_item1_title">Aprender fazendo</h3><p data-i18n="value_item1_text">Tutoriais práticos.</p></div>
-        </div>
-        <div class="checklist-item">
-          <span class="check">✓</span>
-          <div><h3 data-i18n="value_item2_title">Ver bastidores reais</h3><p data-i18n="value_item2_text">Processos reais.</p></div>
-        </div>
-        <div class="checklist-item">
-          <span class="check">✓</span>
-          <div><h3 data-i18n="value_item3_title">Organizar sua carreira</h3><p data-i18n="value_item3_text">Dicas de portfólio.</p></div>
-        </div>
-        <div class="checklist-item">
-          <span class="check">✓</span>
-          <div><h3 data-i18n="value_item4_title">Entender dados sem medo</h3><p data-i18n="value_item4_text">Excel, Python e Spark.</p></div>
-        </div>
-        <div class="checklist-item">
-          <span class="check">✓</span>
-          <div><h3 data-i18n="value_item5_title">Construir com boas referências</h3><p data-i18n="value_item5_text">Curadoria de ferramentas.</p></div>
-        </div>
-        <div class="checklist-item">
-          <span class="check">✓</span>
-          <div><h3 data-i18n="value_item6_title">Fazer parte da jornada</h3><p data-i18n="value_item6_text">Conteúdo em três idiomas.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ARTICLES -->
-  <section class="articles-section">
+  <!-- SKILLS -->
+  <section class="skills-section">
     <div class="container">
       <div class="section-heading">
-        <span class="eyebrow" data-i18n="articles_eyebrow">Do blog</span>
-        <h2 data-i18n="articles_title">Artigos recentes</h2>
-        <p data-i18n="articles_text">Reflexões e tutoriais sobre desenvolvimento, dados e carreira em tecnologia.</p>
+        <span class="eyebrow" data-i18n="skills_eyebrow">Como eu trabalho</span>
+        <h2 data-i18n="skills_title">Minhas frentes de atuação</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <span class="tag" data-i18n="skill1_tag">Front-end</span>
+          <ul>
+            <li data-i18n="skill1_item1">Astro.js para sites rápidos e modernos</li>
+            <li data-i18n="skill1_item2">HTML, CSS e JavaScript</li>
+            <li data-i18n="skill1_item3">Interfaces com dark/light mode e i18n</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <span class="tag" data-i18n="skill2_tag">Dados</span>
+          <ul>
+            <li data-i18n="skill2_item1">Planilhas dinâmicas com Python + openpyxl</li>
+            <li data-i18n="skill2_item2">Dashboards e KPIs em Excel</li>
+            <li data-i18n="skill2_item3">Conceitos de Apache Spark</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <span class="tag" data-i18n="skill3_tag">Produto &amp; Marca</span>
+          <ul>
+            <li data-i18n="skill3_item1">Landing pages para negócios digitais</li>
+            <li data-i18n="skill3_item2">Identidade visual e design system</li>
+            <li data-i18n="skill3_item3">Conteúdo bilíngue/trilíngue</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow" data-i18n="timeline_eyebrow">Trajetória</span>
+        <h2 data-i18n="timeline_title">Como cheguei até aqui</h2>
       </div>
 
-      <div class="featured-article" id="featured-slot"></div>
-
-      <div class="article-grid" id="grid-slot" data-limit="4"></div>
+      <div class="timeline-item">
+        <span class="year" data-i18n="tl1_year">2023</span>
+        <p data-i18n="tl1_text">Comecei a estudar desenvolvimento web e me apaixonei por criar interfaces.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="year" data-i18n="tl2_year">2024</span>
+        <p data-i18n="tl2_text">Mergulhei em análise de dados: Excel avançado, Python e conceitos de Spark.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="year" data-i18n="tl3_year">2025</span>
+        <p data-i18n="tl3_text">Desenvolvi projetos autorais, de quizzes interativos a landing pages para startups.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="year" data-i18n="tl4_year">2026</span>
+        <p data-i18n="tl4_text">Lancei este blog para reunir tudo o que aprendo em um só lugar — em três idiomas.</p>
+      </div>
     </div>
   </section>
 

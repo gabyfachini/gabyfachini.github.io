@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gabryella Facchini — Portfólio &amp; Blog de Tecnologia</title>
-<meta name="description" content="Blog pessoal de Gabryella Facchini: desenvolvimento, dados e carreira em tecnologia, em português, inglês e espanhol.">
+<title>Artigos — Gabryella Facchini</title>
+<meta name="description" content="Artigos sobre desenvolvimento, dados e carreira em tecnologia, escritos por Gabryella Facchini.">
 
-<!-- Set theme before first paint to avoid flashing the wrong mode -->
 <script>
   (function () {
     var saved = localStorage.getItem('gf-theme');
@@ -30,9 +29,9 @@
 
     <nav class="main-nav" aria-label="Navegação principal">
       <ul>
-        <li><a href="index.html" data-i18n="nav_home" aria-current="page">Início</a></li>
+        <li><a href="index.html" data-i18n="nav_home">Início</a></li>
         <li><a href="sobre.html" data-i18n="nav_about">Sobre</a></li>
-        <li><a href="artigos.html" data-i18n="nav_articles">Artigos</a></li>
+        <li><a href="artigos.html" data-i18n="nav_articles" aria-current="page">Artigos</a></li>
         <li><a href="contato.html" data-i18n="nav_contact">Contato</a></li>
       </ul>
     </nav>
@@ -57,75 +56,19 @@
 
 <main>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-visual">
-        <div class="arch-frame">
-          <span class="initials">GF</span>
-        </div>
-        <div class="sticker" data-i18n="hero_sticker">vamos criar algo incrível?</div>
-      </div>
-      <div class="hero-copy">
-        <span class="eyebrow" data-i18n="hero_eyebrow">Oi, prazer!</span>
-        <h1 data-i18n="hero_title">Tecnologia com propósito, contada de forma simples.</h1>
-        <p data-i18n="hero_text">Sou Gabryella Facchini, desenvolvedora e criadora de conteúdo.</p>
-        <div class="hero-actions">
-          <a href="artigos.html" class="btn btn-primary" data-i18n="hero_cta_primary">Ver artigos</a>
-          <a href="contato.html" class="btn btn-ghost" data-i18n="hero_cta_secondary">Fale comigo</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- VALUE / "IMAGINE" SECTION -->
-  <section class="value-section">
-    <div class="container">
-      <div class="section-title">
-        <span class="eyebrow" data-i18n="value_eyebrow">O que você vai encontrar por aqui</span>
-        <h2 data-i18n="value_title">Imagine se você pudesse…</h2>
-      </div>
-      <div class="checklist-grid">
-        <div class="checklist-item">
-          <span class="check">✓</span>
-          <div><h3 data-i18n="value_item1_title">Aprender fazendo</h3><p data-i18n="value_item1_text">Tutoriais práticos.</p></div>
-        </div>
-        <div class="checklist-item">
-          <span class="check">✓</span>
-          <div><h3 data-i18n="value_item2_title">Ver bastidores reais</h3><p data-i18n="value_item2_text">Processos reais.</p></div>
-        </div>
-        <div class="checklist-item">
-          <span class="check">✓</span>
-          <div><h3 data-i18n="value_item3_title">Organizar sua carreira</h3><p data-i18n="value_item3_text">Dicas de portfólio.</p></div>
-        </div>
-        <div class="checklist-item">
-          <span class="check">✓</span>
-          <div><h3 data-i18n="value_item4_title">Entender dados sem medo</h3><p data-i18n="value_item4_text">Excel, Python e Spark.</p></div>
-        </div>
-        <div class="checklist-item">
-          <span class="check">✓</span>
-          <div><h3 data-i18n="value_item5_title">Construir com boas referências</h3><p data-i18n="value_item5_text">Curadoria de ferramentas.</p></div>
-        </div>
-        <div class="checklist-item">
-          <span class="check">✓</span>
-          <div><h3 data-i18n="value_item6_title">Fazer parte da jornada</h3><p data-i18n="value_item6_text">Conteúdo em três idiomas.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ARTICLES -->
-  <section class="articles-section">
+  <section class="articles-section" style="padding-top:56px;">
     <div class="container">
       <div class="section-heading">
         <span class="eyebrow" data-i18n="articles_eyebrow">Do blog</span>
-        <h2 data-i18n="articles_title">Artigos recentes</h2>
+        <h1 data-i18n="articles_title">Artigos recentes</h1>
         <p data-i18n="articles_text">Reflexões e tutoriais sobre desenvolvimento, dados e carreira em tecnologia.</p>
       </div>
 
       <div class="featured-article" id="featured-slot"></div>
 
-      <div class="article-grid" id="grid-slot" data-limit="4"></div>
+      <div class="filter-bar" id="filter-bar"></div>
+
+      <div class="article-grid" id="grid-slot"></div>
     </div>
   </section>
 
