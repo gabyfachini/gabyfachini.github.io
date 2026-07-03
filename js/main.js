@@ -6,6 +6,10 @@
 const GF_LOCALE_MAP = { pt: "pt-BR", en: "en-US", es: "es-ES" };
 let gfActiveCategory = "all";
 
+function gfArticlePrefix() {
+  return document.body ? document.body.dataset.articlePrefix || "" : "";
+}
+
 function gfFormatDate(iso, lang) {
   const date = new Date(iso + "T00:00:00");
   return new Intl.DateTimeFormat(GF_LOCALE_MAP[lang] || "pt-BR", {
@@ -17,27 +21,29 @@ function gfFormatDate(iso, lang) {
 
 function gfArticleCardHTML(article, lang) {
   const dict = TRANSLATIONS[lang] || TRANSLATIONS.pt;
+  const href = `${gfArticlePrefix()}${article.id}.html`;
   return `
     <article class="article-card">
-      <div class="thumb" aria-hidden="true">${article.icon}</div>
+      <a href="${href}" class="thumb" aria-hidden="true">${article.icon}</a>
       <div class="body">
         <span class="category">${dict[CATEGORY_LABEL_KEY[article.category]]}</span>
-        <h3>${article.title[lang]}</h3>
+        <h3><a href="${href}">${article.title[lang]}</a></h3>
         <p>${article.excerpt[lang]}</p>
-        <span class="meta">${gfFormatDate(article.date, lang)} · ${dict.read_more}</span>
+        <a href="${href}" class="meta">${gfFormatDate(article.date, lang)} · ${dict.read_more}</a>
       </div>
     </article>`;
 }
 
 function gfFeaturedHTML(article, lang) {
   const dict = TRANSLATIONS[lang] || TRANSLATIONS.pt;
+  const href = `${gfArticlePrefix()}${article.id}.html`;
   return `
-    <div class="thumb" aria-hidden="true">${article.icon}</div>
+    <a href="${href}" class="thumb" aria-hidden="true">${article.icon}</a>
     <div>
       <span class="category">${dict.featured_label} · ${dict[CATEGORY_LABEL_KEY[article.category]]}</span>
-      <h2>${article.title[lang]}</h2>
+      <h2><a href="${href}">${article.title[lang]}</a></h2>
       <p>${article.excerpt[lang]}</p>
-      <a href="artigos.html" class="btn btn-primary">${dict.read_more}</a>
+      <a href="${href}" class="btn btn-primary">${dict.read_more}</a>
       <div class="meta">${gfFormatDate(article.date, lang)}</div>
     </div>`;
 }
