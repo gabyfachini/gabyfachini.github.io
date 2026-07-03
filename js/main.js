@@ -68,9 +68,11 @@ function gfBuildFilterBar() {
   const dict = TRANSLATIONS[lang] || TRANSLATIONS.pt;
   const cats = [
     { key: "all", label: dict.filter_all },
-    { key: "dev", label: dict.filter_dev },
-    { key: "data", label: dict.filter_data },
-    { key: "career", label: dict.filter_career }
+    { key: "estrategia", label: dict.filter_estrategia },
+    { key: "ia", label: dict.filter_ia },
+    { key: "tecnologia", label: dict.filter_tecnologia },
+    { key: "negocios", label: dict.filter_negocios },
+    { key: "lideranca", label: dict.filter_lideranca }
   ];
   bar.innerHTML = cats
     .map(

@@ -80,7 +80,7 @@ Edite o arquivo `js/articles.js`. Cada artigo é um objeto:
 {
   id: "meu-novo-artigo",
   date: "2026-07-01",
-  category: "dev",       // "dev" | "data" | "career"
+  category: "estrategia",  // "estrategia" | "ia" | "tecnologia" | "negocios" | "lideranca"
   icon: "🚀",              // emoji-placeholder da capa (troque por <img> se quiser)
   featured: false,          // true = aparece em destaque, grande, no topo
   title:   { pt: "...", en: "...", es: "..." },
@@ -105,7 +105,7 @@ a classe `arch-frame` para preservar o recorte em arco.
 O rodapé (presente nas 4 páginas) traz:
 
 ```
-© 2026 Developed by Gabryella Facchini | Portfolio & Business Tech Blog
+© 2026 Gabryella Facchini • Business, Technology & Innovation
 LinkedIn (linkedin.com/in/gabryellafachini) | GitHub (github.com/gabyfachini)
-São Paulo, Brazil
+São Paulo, Brasil
 ```

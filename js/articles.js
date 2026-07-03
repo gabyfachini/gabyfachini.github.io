@@ -7,128 +7,96 @@
 
 const ARTICLES = [
   {
-    id: "sistema-portfolio-i18n",
+    id: "empresas-crescem-mercado-desacelera",
     date: "2026-06-20",
-    category: "dev",
-    icon: "🦙",
+    category: "estrategia",
+    icon: "🚀",
     featured: true,
     title: {
-      pt: "Como criei este blog: Astro, i18n e um mascote de lhama",
-      en: "How I built this blog: Astro, i18n and a llama mascot",
-      es: "Cómo creé este blog: Astro, i18n y una mascota llama"
+      pt: "O que faz empresas crescerem quando o mercado desacelera?",
+      en: "What makes companies grow when the market slows down?",
+      es: "¿Qué hace que las empresas crezcan cuando el mercado se desacelera?"
     },
     excerpt: {
-      pt: "Os bastidores da construção de uma landing page de checkout para creators — do design system à internacionalização.",
-      en: "The behind-the-scenes of building a checkout landing page for creators — from design system to internationalization.",
-      es: "El detrás de escena de construir una landing page de checkout para creadores — del design system a la internacionalización."
+      pt: "Uma análise sobre eficiência operacional, cultura, tecnologia e tomada de decisão em momentos de incerteza.",
+      en: "An analysis of operational efficiency, culture, technology and decision-making in times of uncertainty.",
+      es: "Un análisis sobre eficiencia operativa, cultura, tecnología y toma de decisiones en momentos de incertidumbre."
     }
   },
   {
-    id: "planilha-investimentos-python",
+    id: "ia-mudando-trabalho-alem-chatgpt",
     date: "2026-05-14",
-    category: "data",
-    icon: "📊",
+    category: "ia",
+    icon: "🤖",
     featured: false,
     title: {
-      pt: "Automatizando uma planilha de investimentos com Python e openpyxl",
-      en: "Automating an investment spreadsheet with Python and openpyxl",
-      es: "Automatizando una hoja de cálculo de inversiones con Python y openpyxl"
+      pt: "Como a IA está mudando o trabalho — e por que isso vai muito além do ChatGPT",
+      en: "How AI is changing work — and why it goes far beyond ChatGPT",
+      es: "Cómo la IA está cambiando el trabajo — y por qué va mucho más allá de ChatGPT"
     },
     excerpt: {
-      pt: "Dashboard, KPIs e gráficos gerados automaticamente em cinco abas de controle financeiro.",
-      en: "Dashboard, KPIs and charts generated automatically across five financial control tabs.",
-      es: "Dashboard, KPIs y gráficos generados automáticamente en cinco pestañas de control financiero."
+      pt: "Os impactos da IA em produtos, atendimento, engenharia, marketing e liderança.",
+      en: "The impact of AI on products, customer service, engineering, marketing and leadership.",
+      es: "Los impactos de la IA en productos, atención al cliente, ingeniería, marketing y liderazgo."
     }
   },
   {
-    id: "quiz-interativo-js",
+    id: "cloud-estrategia-de-negocio",
     date: "2026-04-02",
-    category: "dev",
-    icon: "🎮",
+    category: "tecnologia",
+    icon: "☁️",
     featured: false,
     title: {
-      pt: "Construindo um quiz interativo com áudio e animações em JavaScript puro",
-      en: "Building an interactive quiz with audio and animations in vanilla JavaScript",
-      es: "Construyendo un quiz interactivo con audio y animaciones en JavaScript puro"
+      pt: "Cloud deixou de ser infraestrutura. Agora é estratégia de negócio.",
+      en: "Cloud is no longer just infrastructure. Now it's business strategy.",
+      es: "La nube dejó de ser infraestructura. Ahora es estrategia de negocio."
     },
     excerpt: {
-      pt: "Web Audio API, revelações animadas em SVG e compatibilidade com toque em iOS, tudo em um único arquivo.",
-      en: "Web Audio API, animated SVG reveals and iOS touch compatibility, all in a single file.",
-      es: "Web Audio API, revelaciones animadas en SVG y compatibilidad táctil en iOS, todo en un solo archivo."
+      pt: "Como empresas utilizam computação em nuvem para acelerar inovação, reduzir custos e criar vantagem competitiva.",
+      en: "How companies use cloud computing to accelerate innovation, cut costs and build competitive advantage.",
+      es: "Cómo las empresas utilizan la computación en la nube para acelerar la innovación, reducir costos y crear ventaja competitiva."
     }
   },
   {
-    id: "spark-conceitos-essenciais",
+    id: "bastidores-startups-escalam-eficiencia",
     date: "2026-03-11",
-    category: "data",
-    icon: "⚡",
+    category: "negocios",
+    icon: "📈",
     featured: false,
     title: {
-      pt: "Apache Spark sem mistério: transformações, DataFrames e streaming",
-      en: "Apache Spark without the mystery: transformations, DataFrames and streaming",
-      es: "Apache Spark sin misterio: transformaciones, DataFrames y streaming"
+      pt: "Os bastidores das startups que conseguem escalar sem perder eficiência",
+      en: "Behind the scenes of startups that scale without losing efficiency",
+      es: "El detrás de escena de las startups que logran escalar sin perder eficiencia"
     },
     excerpt: {
-      pt: "Um guia direto ao ponto sobre os conceitos que mais aparecem em provas e entrevistas de dados.",
-      en: "A straight-to-the-point guide to the concepts that show up most in data exams and interviews.",
-      es: "Una guía directa sobre los conceptos que más aparecen en exámenes y entrevistas de datos."
+      pt: "Produto, métricas, cultura e processos que sustentam o crescimento.",
+      en: "Product, metrics, culture and processes that sustain growth.",
+      es: "Producto, métricas, cultura y procesos que sostienen el crecimiento."
     }
   },
   {
-    id: "portfolio-que-converte",
+    id: "competencias-lideres-proximos-cinco-anos",
     date: "2026-02-18",
-    category: "career",
-    icon: "🗂️",
+    category: "lideranca",
+    icon: "👥",
     featured: false,
     title: {
-      pt: "Como montar um portfólio de dev que realmente conta uma história",
-      en: "How to build a dev portfolio that actually tells a story",
-      es: "Cómo armar un portafolio de dev que realmente cuenta una historia"
+      pt: "As competências que líderes precisarão desenvolver nos próximos cinco anos",
+      en: "The skills leaders will need to develop over the next five years",
+      es: "Las competencias que los líderes deberán desarrollar en los próximos cinco años"
     },
     excerpt: {
-      pt: "Estrutura, projetos e o que recrutadores olham primeiro — com exemplos práticos.",
-      en: "Structure, projects and what recruiters look at first — with practical examples.",
-      es: "Estructura, proyectos y lo que los reclutadores miran primero — con ejemplos prácticos."
-    }
-  },
-  {
-    id: "dark-mode-design-tokens",
-    date: "2026-01-25",
-    category: "dev",
-    icon: "🌓",
-    featured: false,
-    title: {
-      pt: "Dark mode de verdade: como estruturar design tokens em CSS",
-      en: "Real dark mode: how to structure design tokens in CSS",
-      es: "Modo oscuro de verdad: cómo estructurar design tokens en CSS"
-    },
-    excerpt: {
-      pt: "Variáveis CSS, contraste acessível e a diferença entre inverter cores e desenhar um segundo tema.",
-      en: "CSS variables, accessible contrast, and the difference between inverting colors and designing a second theme.",
-      es: "Variables CSS, contraste accesible y la diferencia entre invertir colores y diseñar un segundo tema."
-    }
-  },
-  {
-    id: "primeiros-90-dias-tech",
-    date: "2025-12-09",
-    category: "career",
-    icon: "🌱",
-    featured: false,
-    title: {
-      pt: "Os primeiros 90 dias estudando tecnologia: o que eu faria diferente",
-      en: "The first 90 days learning tech: what I'd do differently",
-      es: "Los primeros 90 días aprendiendo tecnología: qué haría diferente"
-    },
-    excerpt: {
-      pt: "Erros, acertos e uma rotina de estudos que finalmente funcionou para mim.",
-      en: "Mistakes, wins, and a study routine that finally worked for me.",
-      es: "Errores, aciertos y una rutina de estudio que finalmente funcionó para mí."
+      pt: "O impacto da inteligência artificial, automação e mudanças no mercado sobre a liderança moderna.",
+      en: "The impact of artificial intelligence, automation and market shifts on modern leadership.",
+      es: "El impacto de la inteligencia artificial, la automatización y los cambios del mercado en el liderazgo moderno."
     }
   }
 ];
 
 const CATEGORY_LABEL_KEY = {
-  dev: "filter_dev",
-  data: "filter_data",
-  career: "filter_career"
+  estrategia: "filter_estrategia",
+  ia: "filter_ia",
+  tecnologia: "filter_tecnologia",
+  negocios: "filter_negocios",
+  lideranca: "filter_lideranca"
 };
