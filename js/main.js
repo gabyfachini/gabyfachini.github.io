@@ -106,29 +106,8 @@ function gfSetupMobileNav() {
   });
 }
 
-function gfSetupContactForm() {
-  const form = document.getElementById("contact-form");
-  if (!form) return;
-  const feedback = document.getElementById("form-feedback");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const lang = typeof gfGetLang === "function" ? gfGetLang() : "pt";
-    const messages = {
-      pt: "Mensagem pronta! Como este é um formulário de demonstração, use o LinkedIn ou o e-mail para me enviar de verdade. 💌",
-      en: "Message ready! Since this is a demo form, use LinkedIn or email to actually send it to me. 💌",
-      es: "¡Mensaje listo! Como este es un formulario de demostración, usa LinkedIn o el correo para enviármelo de verdad. 💌"
-    };
-    if (feedback) {
-      feedback.textContent = messages[lang];
-      feedback.hidden = false;
-    }
-    form.reset();
-  });
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   gfSetupMobileNav();
-  gfSetupContactForm();
   gfBuildFilterBar();
   gfRenderArticles();
 });

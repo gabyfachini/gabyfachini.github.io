@@ -64,54 +64,26 @@
         <p data-i18n="contact_text">Se você gosta de discutir inovação, negócios, estratégia, liderança ou tecnologia, será um prazer trocar ideias.</p>
       </div>
 
-      <div class="contact-grid">
-        <form class="contact-form" id="contact-form">
-          <div class="field">
-            <label for="name" data-i18n="form_name">Nome</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="field">
-            <label for="email" data-i18n="form_email">E-mail</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div class="field">
-            <label for="subject" data-i18n="form_subject">Assunto</label>
-            <input type="text" id="subject" name="subject">
-          </div>
-          <div class="field">
-            <label for="message" data-i18n="form_message">Mensagem</label>
-            <textarea id="message" name="message" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" data-i18n="form_submit">Enviar mensagem</button>
-          <p class="form-note" data-i18n="form_note">* Este formulário é apenas ilustrativo.</p>
-          <p id="form-feedback" role="status" hidden></p>
-        </form>
-
-        <aside class="contact-info">
-          <span class="eyebrow" data-i18n="contact_info_title">Outros canais</span>
-          <p data-i18n="contact_info_text">Prefere outro caminho? Também estou por aqui:</p>
-          <ul class="contact-links">
-            <li>
-              <a href="mailto:contato@gabryellafacchini.dev">
-                ✉️ <span data-i18n="contact_email_label">E-mail</span>: contato@gabryellafacchini.dev
-              </a>
-            </li>
-            <li>
-              <a href="https://linkedin.com/in/gabryellafachini" target="_blank" rel="noopener">
-                💼 <span data-i18n="contact_linkedin_label">LinkedIn</span>: /in/gabryellafachini
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/gabyfachini" target="_blank" rel="noopener">
-                💻 <span data-i18n="contact_github_label">GitHub</span>: /gabyfachini
-              </a>
-            </li>
-            <li>
-              📍 <span data-i18n="contact_location_label">Localização</span>: <span data-i18n="contact_location_value">São Paulo, Brasil</span>
-            </li>
-          </ul>
-        </aside>
+      <div class="contact-direct">
+        <div class="contact-direct-icon" aria-hidden="true">💼</div>
+        <a href="https://linkedin.com/in/gabryellafachini" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="contact_direct_button">
+          Conversar no LinkedIn
+        </a>
+        <p class="contact-direct-note" data-i18n="contact_direct_note">É o canal mais rápido para trocarmos ideias — sem formulário, sem espera.</p>
       </div>
+
+      <ul class="contact-secondary">
+        <li><span class="dot" aria-hidden="true">•</span></li>
+        <li>
+          <a href="https://github.com/gabyfachini" target="_blank" rel="noopener">
+            💻 <span data-i18n="contact_github_label">GitHub</span>
+          </a>
+        </li>
+        <li><span class="dot" aria-hidden="true">•</span></li>
+        <li>
+          <span class="location">📍 <span data-i18n="contact_location_value">São Paulo, Brasil</span></span>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -119,12 +91,12 @@
 
 <footer class="site-footer">
   <div class="container">
-    <p class="footer-copy">© 2026 <strong>Gabryella Facchini</strong> • Business, Technology &amp; Innovation</p>
+    <p class="footer-copy">© 2026 <strong>Gabryella Facchini</strong> | <span data-i18n="footer_tagline">Negócios, Tecnologia e Inovação</span></p>
     <ul class="footer-links">
       <li><a href="https://linkedin.com/in/gabryellafachini" target="_blank" rel="noopener">LinkedIn</a></li>
       <li><a href="https://github.com/gabyfachini" target="_blank" rel="noopener">GitHub</a></li>
     </ul>
-    <p class="footer-location">São Paulo, Brasil</p>
+    <p class="footer-location" data-i18n="footer_location">São Paulo, Brasil</p>
   </div>
 </footer>
 
