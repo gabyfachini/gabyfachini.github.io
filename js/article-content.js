@@ -170,6 +170,65 @@ const ARTICLE_CONTENT = {
       { type: "p", text: "La planificación a largo plazo sigue siendo importante, pero los líderes que se destaquen en los próximos años serán los que logren revisar planes con la misma velocidad con la que cambia el mercado, sin perder dirección estratégica en el proceso. Esto es distinto de improvisar: es tener claridad sobre el destino y flexibilidad sobre el camino." },
       { type: "p", text: "Al final, las competencias más valiosas del futuro del liderazgo no son tan diferentes de las de siempre —criterio, comunicación y cuidado por las personas—, pero ahora deben ejercerse a un ritmo mucho más acelerado." }
     ]
+  },
+    
+  "feedback-mudou-forma-compartilhar-conhecimento": {
+    pt: [
+      { type: "p", text: "Sempre gostei de aprender. Livros, conversas, experiências… tudo é suficiente para observar, analisar e conectar ideias. Contudo, foi um feedback muito especial que me fez dar o passo que deu origem a este blog." },
+      { type: "h2", text: "O feedback que ficou na minha memória" },
+      { type: "p", text: "Uma amiga que faz parte da minha vida há muitos anos e que já me viu em diferentes momentos — da vida profissional à vida pessoal — me disse algo que permaneceu nos meus pensamentos. Ela percebeu que eu tenho uma capacidade de macrovisão, de enxergar o todo e conectar pontos que, para muita gente, parecem distantes." },
+      { type: "p", text: "Segundo ela, esse olhar é raro, valioso e extremamente importante em qualquer gestão ou tomada de decisão." },
+      { type: "p", text: "Esse não foi o único feedback desse tipo que recebi, mas foi o suficiente para despertar uma pergunta: por que não compartilhar mais o que aprendi ao longo da vida?" },
+      { type: "h2", text: "Quando percebi que aprender vai além de estudar" },
+      { type: "p", text: "Um exemplo que sempre me marca é quando decidi prestar um concurso militar. Em apenas três meses de estudo, consegui conquistar o 3º lugar nacional." },
+      { type: "p", text: "Mais do que dedicação, essa conquista veio da forma como analisei as informações, organizei o conhecimento e apliquei o que aprendi. Muitas dessas habilidades foram desenvolvidas ao longo da vida de maneira informal, movidas simplesmente pela curiosidade e pela prática constante." },
+      { type: "h2", text: "Compartilhar conhecimento transforma pessoas" },
+      { type: "p", text: "Também percebi isso em outros projetos. Sempre que compartilho minhas análises, estratégias ou formas de pensar, muitas pessoas conseguem enxergar caminhos e soluções que antes pareciam invisíveis." },
+      { type: "p", text: "É como se pequenos insights fossem capazes de abrir novas possibilidades e estimular novas formas de resolver problemas." },
+      { type: "h2", text: "O propósito deste blog" },
+      { type: "p", text: "Por isso, este blog nasce sem a obrigação de publicar conteúdos em uma frequência específica, mas com a intenção de trazer reflexões que realmente façam sentido e agreguem valor." },
+      { type: "p", text: "Aqui você vai encontrar reflexões, estratégias e aprendizados que misturam tecnologia, negócios, carreira, desenvolvimento pessoal e histórias de vida, porque acredito que todos esses temas estão profundamente conectados." },
+      { type: "p", text: "Seja muito bem-vindo(a)!" },
+      { type: "p", text: "Porque, no fim, o conhecimento só ganha sentido quando é compartilhado. ✨" }
+    ],
+
+    en: [
+      { type: "p", text: "I've always loved learning. Books, conversations and experiences have always been opportunities to observe, analyze and connect ideas. However, it was one very special piece of feedback that encouraged me to start this blog." },
+      { type: "h2", text: "The feedback that stayed with me" },
+      { type: "p", text: "A friend who has been part of my life for many years and has seen me through different stages — both professionally and personally — once told me something that has stayed with me ever since. She said I have the ability to see the bigger picture and connect ideas that many people consider unrelated." },
+      { type: "p", text: "According to her, this broader perspective is rare, valuable and essential for management and decision-making." },
+      { type: "p", text: "It wasn't the only time I received feedback like that, but it was enough to make me ask myself: why not share more of what I've learned throughout my life?" },
+      { type: "h2", text: "Learning goes beyond studying" },
+      { type: "p", text: "One experience that always comes to mind is when I decided to take a Brazilian military public examination. After only three months of preparation, I achieved third place nationwide." },
+      { type: "p", text: "More than dedication, that achievement came from the way I analyzed information, organized knowledge and applied everything I had learned. Many of these skills were developed informally over the years through curiosity and constant practice." },
+      { type: "h2", text: "Sharing knowledge creates new possibilities" },
+      { type: "p", text: "I've also noticed this in other projects. Whenever I share my analyses, strategies or ways of thinking, people often discover solutions and opportunities they hadn't seen before." },
+      { type: "p", text: "Sometimes a single insight is enough to unlock an entirely new perspective." },
+      { type: "h2", text: "The purpose of this blog" },
+      { type: "p", text: "This blog wasn't created with the goal of publishing on a strict schedule. Instead, my goal is to share reflections and ideas that genuinely add value." },
+      { type: "p", text: "Here you'll find insights that connect technology, business, career, personal development and life experiences, because I believe these subjects are deeply interconnected." },
+      { type: "p", text: "Welcome!" },
+      { type: "p", text: "After all, knowledge only becomes meaningful when it is shared. ✨" }
+    ],
+
+    es: [
+      { type: "p", text: "Siempre me ha gustado aprender. Los libros, las conversaciones y las experiencias siempre han sido oportunidades para observar, analizar y conectar ideas. Sin embargo, fue un comentario muy especial el que me impulsó a crear este blog." },
+      { type: "h2", text: "El comentario que cambió mi perspectiva" },
+      { type: "p", text: "Una amiga que forma parte de mi vida desde hace muchos años y que me ha acompañado en diferentes etapas, tanto personales como profesionales, me dijo algo que nunca olvidé. Según ella, tengo la capacidad de ver el panorama completo y conectar ideas que para muchas personas parecen no tener relación." },
+      { type: "p", text: "Para ella, esa visión amplia es poco común, valiosa y fundamental para cualquier proceso de gestión o toma de decisiones." },
+      { type: "p", text: "No fue la única vez que recibí un comentario así, pero sí fue suficiente para hacerme una pregunta: ¿por qué no compartir más de todo lo que he aprendido a lo largo de mi vida?" },
+      { type: "h2", text: "Aprender va mucho más allá de estudiar" },
+      { type: "p", text: "Un ejemplo que siempre recuerdo fue cuando decidí presentarme a un concurso militar. Después de solo tres meses de preparación, obtuve el tercer lugar a nivel nacional." },
+      { type: "p", text: "Más que esfuerzo, ese logro fue resultado de la manera en que analicé la información, organicé el conocimiento y apliqué todo lo que había aprendido. Muchas de esas habilidades surgieron de forma natural gracias a la curiosidad y a la práctica constante." },
+      { type: "h2", text: "Compartir conocimiento transforma a las personas" },
+      { type: "p", text: "También lo he comprobado en otros proyectos. Siempre que comparto mis análisis, estrategias o formas de pensar, muchas personas encuentran caminos y soluciones que antes no podían ver." },
+      { type: "p", text: "A veces, una pequeña idea puede abrir posibilidades completamente nuevas." },
+      { type: "h2", text: "El propósito de este blog" },
+      { type: "p", text: "Este blog no nace con la obligación de publicar constantemente, sino con la intención de compartir contenidos que realmente aporten valor." },
+      { type: "p", text: "Aquí encontrarás reflexiones que conectan tecnología, negocios, carrera profesional, desarrollo personal e historias de vida, porque creo que todos estos temas están profundamente relacionados." },
+      { type: "p", text: "¡Bienvenido(a)!" },
+      { type: "p", text: "Porque, al final, el conocimiento solo cobra verdadero sentido cuando se comparte. ✨" }
+    ]
   }
 
 };
