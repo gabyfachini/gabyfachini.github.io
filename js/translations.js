@@ -11,7 +11,7 @@ const TRANSLATIONS = {
     nav_about: "Sobre",
     nav_articles: "Artigos",
     nav_contact: "Contato",
-    brand_tagline: "business, tecnologia &amp; inovação",
+    brand_tagline: "negócios, tecnologia &amp; inovação",
 
     hero_eyebrow: "Oi, prazer!",
     hero_title: "Negócios, tecnologia e inovação",

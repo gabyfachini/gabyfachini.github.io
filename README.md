@@ -118,6 +118,9 @@ Para ajustar as cores, edite apenas as variáveis no topo do `style.css`:
 
 - O botão de idioma no cabeçalho abre um menu suspenso com as **bandeiras**
   🇧🇷 Português, 🇺🇸 English e 🇪🇸 Español (`js/i18n.js`).
+- As bandeiras são **emojis de texto** (definidos em `GF_LANGS` dentro de
+  `js/i18n.js`), não arquivos de imagem — não é preciso nenhum ícone/SVG
+  em `assets/` para elas funcionarem.
 - Todo texto traduzível tem um atributo `data-i18n="chave"` no HTML.
 - As traduções ficam centralizadas em `js/translations.js`.
 - A escolha do usuário é salva em `localStorage` (`gf-lang`) e mantida
@@ -126,6 +129,15 @@ Para ajustar as cores, edite apenas as variáveis no topo do `style.css`:
 **Para adicionar um novo texto traduzível:**
 1. Dê um `data-i18n="minha_chave"` ao elemento no HTML.
 2. Adicione `minha_chave: "..."` dentro de `pt`, `en` e `es` em `translations.js`.
+
+⚠️ **Importante:** qualquer elemento com `data-i18n="..."` tem seu texto
+**sobrescrito automaticamente** pelo `js/i18n.js` assim que a página
+carrega, usando o valor de `js/translations.js`. Ou seja, editar o texto
+diretamente no HTML de um elemento que já tem `data-i18n` **não funciona**
+sozinho — a mudança visual dura só até o JavaScript rodar, e volta pro
+texto antigo. Sempre que editar um texto assim direto no HTML, atualize
+também a mesma chave em `js/translations.js` (nas 3 línguas), ou a edição
+"desaparece" ao recarregar a página.
 
 ## 📝 Artigos do blog
 
@@ -137,7 +149,8 @@ Edite o arquivo `js/articles.js` (metadados) e `js/article-content.js`
   id: "meu-novo-artigo",
   date: "2026-07-01",
   category: "estrategia",  // "estrategia" | "ia" | "tecnologia" | "negocios" | "lideranca"
-  icon: "🚀",              // emoji-placeholder da capa (troque por <img> se quiser)
+  icon: "🚀",              // emoji usado como capa ENQUANTO não houver foto (veja abaixo)
+  image: "",                // caminho da foto de capa; deixe "" para usar o emoji
   featured: false,          // true = aparece em destaque, grande, no topo
   title:   { pt: "...", en: "...", es: "..." },
   excerpt: { pt: "...", en: "...", es: "..." }
@@ -166,20 +179,65 @@ Apenas **um** artigo deve ter `featured: true` por vez — ele aparece
 centralizado e em destaque; os demais aparecem em cartões menores logo
 abaixo (com filtro por categoria na página **Artigos**).
 
-## 🖼️ Imagens reais
+## 🖼️ Foto de perfil (Início e Sobre)
 
-Por padrão as fotos usam um "frame em arco" (o elemento de assinatura
-visual do design, inspirado na referência enviada) preenchido com um
-gradiente + emoji/iniciais. Para usar fotos reais, substitua o `<div class="arch-frame">`
-por uma tag `<img>` apontando para um arquivo em `assets/images/`, mantendo
-a classe `arch-frame` para preservar o recorte em arco.
+O Início e o Sobre usam a mesma foto, `assets/images/about-side.webp`,
+dentro de um `<div class="arch-frame">`. **Essa div é obrigatória** — é
+ela que dá o recorte, o arredondamento e o enquadramento à imagem; um
+`<img>` solto, sem essa div em volta, aparece sem estilo nenhum (sem
+bordas arredondadas, sem corte, no tamanho original do arquivo).
+
+```html
+<div class="hero-visual">
+  <div class="arch-frame">
+    <img src="assets/images/about-side.webp" alt="Foto de Gabryella Facchini">
+  </div>
+</div>
+```
+
+⚠️ **Atenção:** o arquivo `assets/images/about-side.webp` ainda não existe
+dentro de `assets/images/` neste projeto — só a referência a ele no HTML.
+Para a foto aparecer, salve o arquivo de imagem real nessa pasta com
+exatamente esse nome (ou ajuste o `src` para o nome do arquivo que você
+usar).
+
+## 🖼️ Capas dos artigos: emoji ou foto real (sistema híbrido)
+
+Cada artigo tem dois campos em `js/articles.js`: `icon` (emoji) e `image`
+(caminho de uma foto). O site decide sozinho qual usar:
+
+- Se `image` estiver **vazio** (`""`), a capa mostra o `icon` (emoji) sobre
+  um fundo em gradiente — como já vem por padrão.
+- Se `image` tiver um **caminho válido**, a capa mostra essa foto real,
+  cobrindo todo o espaço (sem distorcer), e o gradiente desaparece.
+
+**Para usar uma foto real:**
+1. Salve o arquivo em `assets/images/` (ex.: `assets/images/cloud.jpg`).
+2. Em `js/articles.js`, preencha o campo do artigo:
+   `image: "assets/images/cloud.jpg"`
+3. Pronto — a foto passa a aparecer automaticamente no card do Início, na
+   grade de Artigos, no artigo em destaque e na capa da página individual
+   do artigo, sem precisar editar nenhum HTML.
+
+Isso funciona também artigo por artigo: você pode ter alguns com foto e
+outros ainda só com emoji, sem problema — é exatamente para isso que serve
+o sistema híbrido.
+
+A moldura da foto de perfil "GF" (no Início e em Sobre) segue com as
+mesmas bordas arredondadas em todos os cantos, no mesmo estilo usado nos
+cards de artigo.
 
 ## © Rodapé
 
-O rodapé (presente nas 4 páginas) traz:
+O rodapé (presente nas 9 páginas: as 4 principais + os 5 artigos) traz:
 
 ```
-© 2026 Gabryella Facchini • Business, Technology & Innovation
-LinkedIn (linkedin.com/in/gabryellafachini) | GitHub (github.com/gabyfachini)
-São Paulo, Brasil
+© 2026 Gabryella Facchini | Negócios, Tecnologia e Inovação   (muda com o idioma)
+Designed and Developed by Gabryella Facchini                  (fixo, em negrito, não muda de idioma)
+LinkedIn | GitHub
+São Paulo, Brasil                                              (muda com o idioma)
 ```
+
+A linha "Designed and Developed by..." é proposital e permanentemente em
+inglês e em negrito (`.footer-credit` em `css/style.css`), independente do
+idioma selecionado.

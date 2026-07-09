@@ -10,7 +10,8 @@ const ARTICLES = [
     id: "empresas-crescem-mercado-desacelera",
     date: "2026-06-20",
     category: "estrategia",
-    image: "assets/images/empresas-crescem-mercado-desacelera.jpg.jpg",
+    icon: "🚀",
+    image: "assets/images/empresas-crescem-mercado-desacelera.jpg", 
     featured: false,
     title: {
       pt: "O que faz empresas crescerem quando o mercado desacelera?",
@@ -27,7 +28,8 @@ const ARTICLES = [
     id: "ia-mudando-trabalho-alem-chatgpt",
     date: "2026-05-14",
     category: "ia",
-    image: "assets/images/ia-mudando-trabalho-alem-chatgpt.jpg.jpg",
+    icon: "🤖",
+    image: "assets/images/ia-mudando-trabalho-alem-chatgpt.jpg",
     featured: false,
     title: {
       pt: "Como a IA está mudando o trabalho — e por que isso vai muito além do ChatGPT",
@@ -44,6 +46,7 @@ const ARTICLES = [
     id: "cloud-estrategia-de-negocio",
     date: "2026-04-02",
     category: "tecnologia",
+    icon: "☁️",
     image: "assets/images/cloud-estrategia-de-negocio.jpg",
     featured: false,
     title: {
@@ -61,7 +64,8 @@ const ARTICLES = [
     id: "bastidores-startups-escalam-eficiencia",
     date: "2026-03-11",
     category: "negocios",
-    image: "assets/images/bastidores-startups-escalam-eficiencia.jpg.jpg",
+    icon: "📈",
+    image: "assets/images/bastidores-startups-escalam-eficiencia.jpg",
     featured: false,
     title: {
       pt: "Os bastidores das startups que conseguem escalar sem perder eficiência",
@@ -78,6 +82,7 @@ const ARTICLES = [
     id: "competencias-lideres-proximos-cinco-anos",
     date: "2026-02-18",
     category: "lideranca",
+    icon: "👥",
     image: "assets/images/competencias-lideres-proximos-cinco-anos.jpg",
     featured: false,
     title: {
@@ -95,7 +100,7 @@ const ARTICLES = [
     id: "feedback-mudou-forma-compartilhar-conhecimento",
     date: "2026-07-06",
     category: "lideranca",
-    image: "assets/images/feedback(2).jpg",
+    image: "assets/images/feedback.jpg",
     featured: true, // This article is featured and will be shown in the hero section of the articles page
     title: {
       pt: "O Feedback que mudou minha forma de compartilhar conhecimento ✨",

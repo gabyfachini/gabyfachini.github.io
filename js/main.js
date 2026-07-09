@@ -10,6 +10,10 @@ function gfArticlePrefix() {
   return document.body ? document.body.dataset.articlePrefix || "" : "";
 }
 
+function gfAssetPrefix() {
+  return document.body ? document.body.dataset.rootPrefix || "" : "";
+}
+
 function gfFormatDate(iso, lang) {
   const date = new Date(iso + "T00:00:00");
   return new Intl.DateTimeFormat(GF_LOCALE_MAP[lang] || "pt-BR", {
@@ -19,12 +23,22 @@ function gfFormatDate(iso, lang) {
   }).format(date);
 }
 
+// Renders a real cover photo (article.image) when present, otherwise
+// falls back to the emoji placeholder (article.icon).
+function gfThumbInner(article, lang) {
+  if (article.image) {
+    return `<img src="${gfAssetPrefix()}${article.image}" alt="${article.title[lang]}" loading="lazy">`;
+  }
+  return article.icon;
+}
+
 function gfArticleCardHTML(article, lang) {
   const dict = TRANSLATIONS[lang] || TRANSLATIONS.pt;
   const href = `${gfArticlePrefix()}${article.id}.html`;
+  const thumbClass = article.image ? "thumb has-image" : "thumb";
   return `
     <article class="article-card">
-      <a href="${href}" class="thumb" aria-hidden="true">${article.icon}</a>
+      <a href="${href}" class="${thumbClass}" aria-hidden="true">${gfThumbInner(article, lang)}</a>
       <div class="body">
         <span class="category">${dict[CATEGORY_LABEL_KEY[article.category]]}</span>
         <h3><a href="${href}">${article.title[lang]}</a></h3>
@@ -37,8 +51,9 @@ function gfArticleCardHTML(article, lang) {
 function gfFeaturedHTML(article, lang) {
   const dict = TRANSLATIONS[lang] || TRANSLATIONS.pt;
   const href = `${gfArticlePrefix()}${article.id}.html`;
+  const thumbClass = article.image ? "thumb has-image" : "thumb";
   return `
-    <a href="${href}" class="thumb" aria-hidden="true">${article.icon}</a>
+    <a href="${href}" class="${thumbClass}" aria-hidden="true">${gfThumbInner(article, lang)}</a>
     <div>
       <span class="category">${dict.featured_label} · ${dict[CATEGORY_LABEL_KEY[article.category]]}</span>
       <h2><a href="${href}">${article.title[lang]}</a></h2>

@@ -35,7 +35,15 @@ function gfRenderArticlePage() {
   }
 
   const coverSlot = document.getElementById("article-cover");
-  if (coverSlot) coverSlot.textContent = meta.icon;
+  if (coverSlot) {
+    if (meta.image) {
+      coverSlot.classList.add("has-image");
+      coverSlot.innerHTML = `<img src="${gfAssetPrefix()}${meta.image}" alt="${meta.title[lang]}" loading="lazy">`;
+    } else {
+      coverSlot.classList.remove("has-image");
+      coverSlot.textContent = meta.icon;
+    }
+  }
 
   const bodySlot = document.getElementById("article-body");
   if (bodySlot) {
