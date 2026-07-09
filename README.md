@@ -1,12 +1,11 @@
-# Gabryella Facchini — Blog (Portfolio & Business Tech Blog)
+# Gabryella Facchini — Blog 
 
 Site estático (HTML + CSS + JS puro, sem build) com 4 páginas, troca de
 idioma (PT/EN/ES) com bandeiras, e tema claro/escuro.
 
 ## 📁 Arquitetura do projeto (Visual Studio Code)
 
-Abra a pasta `gabryella-facchini-blog/` inteira no VS Code
-(`File > Open Folder…`). Estrutura de arquivos:
+Estrutura de arquivos:
 
 ```
 gabryella-facchini-blog/
@@ -81,15 +80,6 @@ cada página HTML.
    é idêntico entre artigos — título, resumo, ícone e texto são
    preenchidos automaticamente pelo JavaScript).
 
-### 🔗 Acesso direto aos artigos
-
-Os cards de artigo (no Início e em Artigos) e o artigo em destaque agora
-apontam diretamente para a página individual correspondente — o clique no
-título, na imagem/ícone ou em "Ler artigo" leva para `artigos/<id>.html`
-em vez de apenas rolar até a lista. Cada página de artigo também mostra
-"Artigos recentes" relacionados no rodapé do texto, incentivando a
-navegação para outros posts.
-
 ## ▶️ Como rodar
 
 Não há build nem dependências. Duas formas de abrir:
@@ -118,9 +108,6 @@ Para ajustar as cores, edite apenas as variáveis no topo do `style.css`:
 
 - O botão de idioma no cabeçalho abre um menu suspenso com as **bandeiras**
   🇧🇷 Português, 🇺🇸 English e 🇪🇸 Español (`js/i18n.js`).
-- As bandeiras são **emojis de texto** (definidos em `GF_LANGS` dentro de
-  `js/i18n.js`), não arquivos de imagem — não é preciso nenhum ícone/SVG
-  em `assets/` para elas funcionarem.
 - Todo texto traduzível tem um atributo `data-i18n="chave"` no HTML.
 - As traduções ficam centralizadas em `js/translations.js`.
 - A escolha do usuário é salva em `localStorage` (`gf-lang`) e mantida
@@ -195,12 +182,6 @@ bordas arredondadas, sem corte, no tamanho original do arquivo).
 </div>
 ```
 
-⚠️ **Atenção:** o arquivo `assets/images/about-side.webp` ainda não existe
-dentro de `assets/images/` neste projeto — só a referência a ele no HTML.
-Para a foto aparecer, salve o arquivo de imagem real nessa pasta com
-exatamente esse nome (ou ajuste o `src` para o nome do arquivo que você
-usar).
-
 ## 🖼️ Capas dos artigos: emoji ou foto real (sistema híbrido)
 
 Cada artigo tem dois campos em `js/articles.js`: `icon` (emoji) e `image`
@@ -223,17 +204,13 @@ Isso funciona também artigo por artigo: você pode ter alguns com foto e
 outros ainda só com emoji, sem problema — é exatamente para isso que serve
 o sistema híbrido.
 
-A moldura da foto de perfil "GF" (no Início e em Sobre) segue com as
-mesmas bordas arredondadas em todos os cantos, no mesmo estilo usado nos
-cards de artigo.
-
 ## © Rodapé
 
 O rodapé (presente nas 9 páginas: as 4 principais + os 5 artigos) traz:
 
 ```
 © 2026 Gabryella Facchini | Negócios, Tecnologia e Inovação   (muda com o idioma)
-Designed and Developed by Gabryella Facchini                  (fixo, em negrito, não muda de idioma)
+Designed and Developed by Gabryella Facchini                  (fixo)
 LinkedIn | GitHub
 São Paulo, Brasil                                              (muda com o idioma)
 ```
