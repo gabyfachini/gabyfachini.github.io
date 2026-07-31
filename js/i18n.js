@@ -7,9 +7,9 @@
    ========================================================================== */
 
 const GF_LANGS = [
-  { code: "pt", flag: "🇧🇷", name: "Português" },
-  { code: "en", flag: "🇺🇸", name: "English" },
-  { code: "es", flag: "🇪🇸", name: "Español" }
+  { code: "pt", name: "Português" },
+  { code: "en", name: "English" },
+  { code: "es", name: "Español" }
 ];
 
 function gfGetLang() {
@@ -40,9 +40,7 @@ function gfSetLang(lang) {
 
 function gfUpdateLangSwitchUI(lang) {
   const info = GF_LANGS.find((l) => l.code === lang) || GF_LANGS[0];
-  const flagEl = document.querySelector("[data-lang-current-flag]");
   const nameEl = document.querySelector("[data-lang-current-name]");
-  if (flagEl) flagEl.textContent = info.flag;
   if (nameEl) nameEl.textContent = info.code.toUpperCase();
 
   document.querySelectorAll(".lang-option").forEach((btn) => {
@@ -56,7 +54,6 @@ function gfBuildLangMenu() {
   menu.innerHTML = GF_LANGS.map(
     (l) => `
       <button type="button" class="lang-option" data-lang="${l.code}" aria-pressed="false">
-        <span class="flag">${l.flag}</span>
         <span>
           <span class="lang-name">${l.name}</span>
           <span class="lang-native">${l.code.toUpperCase()}</span>

@@ -7,6 +7,90 @@
 
 const ARTICLE_CONTENT = {
 
+  "por-que-estrategias-falham-execucao": {
+    pt: [
+      { type: "p", text: "Você sabia que cerca de 70% das estratégias falham durante a execução, e não no planejamento? Esse dado, amplamente discutido por consultorias como a McKinsey & Company, reforça que o maior desafio das empresas não é criar uma boa estratégia, mas conseguir executá-la de forma consistente." },
+      { type: "h2", text: "O problema raramente é a estratégia em si" },
+      { type: "p", text: "Depois de ouvir diferentes empresas durante o São Paulo Innovation Week, ficou ainda mais claro que o problema normalmente não está na estratégia em si. Está no alinhamento entre pessoas, processos e cultura. Quando cada área trabalha com objetivos diferentes, processos não conversam e indicadores não refletem o mesmo direcionamento, a empresa perde velocidade e dificulta sua própria escalabilidade." },
+      { type: "h2", text: "Inovação não pertence a um departamento" },
+      { type: "p", text: "Outro ponto importante foi perceber que inovação não pertence apenas a um departamento. Ela nasce da cultura organizacional e precisa estar presente em todas as áreas da empresa, do financeiro ao atendimento, da tecnologia às operações." },
+      { type: "h2", text: "Governança como vantagem competitiva" },
+      { type: "p", text: "Conforme o negócio cresce, fortalecer governança, processos financeiros, tecnologia e a jornada do cliente deixa de ser apenas organização interna e passa a ser uma vantagem competitiva." },
+      { type: "p", text: "Depois de acompanhar tantos painéis, minha principal conclusão foi que empresas vencedoras não serão necessariamente aquelas que utilizam mais Inteligência Artificial, mas aquelas que conseguem alinhar cultura, estratégia, dados e execução para transformar boas ideias em resultados consistentes." }
+    ]
+  },
+
+  "seguranca-alimentar-geopolitica-regulacao-internacional": {
+    pt: [
+      { type: "p", text: "Você sabia que um dos maiores marcos regulatórios para empresas que exportam alimentos aos Estados Unidos surgiu como consequência dos ataques de 11 de setembro de 2001?" },
+      { type: "h2", text: "Da segurança nacional à segurança da cadeia de suprimentos" },
+      { type: "p", text: "Após os atentados, a preocupação com a segurança da cadeia de suprimentos aumentou significativamente. Isso levou ao fortalecimento de exigências para rastreabilidade, controle de processos e prevenção de riscos na produção de alimentos destinados ao mercado norte-americano, pois após os ataques de 2001 os EUA aprovaram a Lei de Bioterrorismo (2002) e depois a FSMA (2011), endurecendo o controle preventivo e a rastreabilidade de alimentos." },
+      { type: "h2", text: "O papel do APPCC (HACCP)" },
+      { type: "p", text: "Nesse contexto, sistemas como a APPCC (Análise de Perigos e Pontos Críticos de Controle — HACCP) ganharam ainda mais relevância. Embora a metodologia já existisse antes, sua adoção passou a ser um requisito essencial para diversas empresas que desejavam exportar alimentos para os Estados Unidos, reforçando a necessidade de controles preventivos e documentação robusta." },
+      { type: "h2", text: "Regulação como estratégia global" },
+      { type: "p", text: "O impacto vai muito além da indústria alimentícia. Esse é um exemplo claro de como acontecimentos geopolíticos podem transformar regulações, criar novos padrões internacionais e influenciar diretamente a estratégia de empresas que atuam globalmente. O Engenheiro de Alimentos (uma das minhas formações) se torna papel principal em regular esses processos nas indústrias." },
+      { type: "p", text: "Portanto, para quem deseja internacionalizar um negócio, apenas acompanhar tendências de mercado não é suficiente. Entender mudanças regulatórias, requisitos legais e padrões internacionais pode ser o fator que determina o sucesso — ou impede completamente a entrada em novos mercados." }
+    ]
+  },
+
+  "internacionalizacao-negocios-effectuation-vtex": {
+    pt: [
+      { type: "p", text: "Expandir um negócio para outros países parece ser apenas uma questão de escala. Na prática, é um exercício constante de adaptação. Internacionalizar um negócio significa entender novas culturas, legislações, hábitos de consumo e dinâmicas de mercado que muitas vezes são completamente diferentes das encontradas no Brasil." },
+      { type: "h2", text: "A adaptação começa dentro do próprio país" },
+      { type: "p", text: "Curiosamente, esse desafio já começa dentro do nosso próprio país. Empresas brasileiras frequentemente precisam adaptar produtos, operações e estratégias para atender diferenças regionais, o que demonstra que escalar exige flexibilidade muito antes da expansão internacional." },
+      { type: "h2", text: "O case VTEX e a lógica do effectuation" },
+      { type: "p", text: "Um exemplo interessante discutido durante a São Paulo Innovation Week foi o da VTEX. A empresa nasceu voltada para o setor têxtil (como Vitrine Têxtil), mas percebeu uma dor latente no ecossistema de e-commerce corporativo. Em vez de insistir na tese original, os fundadores usaram os recursos disponíveis para pivotar o modelo de negócio, transformando a marca em uma referência global de comércio digital. Essa capacidade de cocriar e adaptar-se em cenários de incerteza exemplifica perfeitamente a lógica de effectuation, um dos tópicos centrais abordados no evento Startup Blueprint, da Mauna Ventures." },
+      { type: "h2", text: "Testar, validar e aprender rápido" },
+      { type: "p", text: "Os primeiros passos da internacionalização devem acontecer rapidamente, com testes, validação de hipóteses e aprendizado constante. Nem todo produto que funciona em um país terá o mesmo sucesso em outro." },
+      { type: "p", text: "No fim, a execução pesa muito mais do que a ideia. Estratégia internacional exige compreender economia, tecnologia, legislação, comportamento do consumidor e capacidade de adaptação. Crescer globalmente não é apenas vender para outros países, mas construir um negócio preparado para competir em diferentes contextos." }
+    ]
+  },
+
+  "sao-paulo-innovation-week-dados-maturidade-ia": {
+    pt: [
+      { type: "p", text: "O São Paulo Innovation Week trouxe diversos insights e a certeza de que o foco das empresas deixou de ser apenas lançar novas tecnologias e passou a ser construir infraestrutura, inteligência de dados e negócios capazes de resolver problemas reais de forma escalável." },
+      { type: "h2", text: "IA já faz parte da rotina, mas exige maturidade" },
+      { type: "p", text: "Um dos principais aprendizados foi que a Inteligência Artificial já faz parte da rotina das empresas com modelos que aceleram análises, apoiam decisões e aumentam produtividade. Mas ferramentas avançadas só geram valor quando a organização possui maturidade para utilizá-las." },
+      { type: "h2", text: "O maior desafio ainda é a base de dados" },
+      { type: "p", text: "E isso leva ao maior desafio atual: dados. Não existe IA eficiente sem informações estruturadas, governança e processos consistentes. Antes de pensar em automação inteligente, muitas empresas ainda precisam construir uma base sólida para que a tecnologia realmente entregue resultados." },
+      { type: "h2", text: "O potencial brasileiro para empresas globais" },
+      { type: "p", text: "Outro ponto que chamou atenção foi o potencial do Brasil para criar empresas globais. Temos talento, capacidade técnica e problemas complexos que podem originar soluções exportáveis. A ambição agora é formar negócios que se tornem referências internacionais, assim como a Nubank está fazendo em seu setor." },
+      { type: "p", text: "Também ficou evidente que a IA entrega insights, identifica padrões e mostra caminhos, mas a execução estratégica continua sendo o principal diferencial competitivo. Empresas de destaque serão aquelas que conseguem transformar informação em ação com velocidade e consistência." },
+      { type: "p", text: "Além dos aprendizados, descobri a AWSales, uma plataforma brasileira de agentes de inteligência artificial autônomos voltada para empresas, que cria assistentes virtuais de ponta a ponta para automatizar áreas como vendas, suporte ao cliente e retenção — mostrando que tecnologias brasileiras podem inovar e usar IA para solucionar problemas reais." },
+      { type: "p", text: "O grande desafio agora é romper barreiras tradicionais, integrar tecnologias como IA, IoT e hardware quando fizer sentido e construir empresas capazes de competir globalmente, resolvendo problemas reais com inteligência e escala." }
+    ]
+  },
+
+  "google-for-startups-brasil-ia-infraestrutura": {
+    pt: [
+      { type: "p", text: "O Brasil está entrando no radar global de inovação impulsionado por novas tecnologias e empresas com mentalidade AI-first. Recentemente, estive no Google for Startups e voltei com a certeza de que a Inteligência Artificial deixou de ser apenas um modelo para se tornar infraestrutura empresarial." },
+      { type: "h2", text: "Visão de longo prazo e adaptação constante" },
+      { type: "p", text: "Um ponto que me chamou muita atenção no evento foi o resgate da visão de longo prazo traçada pelos fundadores do Google ainda nos anos 2000. É inspirador ver como esse raciocínio persiste em grandes empresas que entendem a necessidade de se adequar às mudanças mundiais para se manterem competitivas e continuarem entregando valor à sociedade." },
+      { type: "h2", text: "Tecnologia gerando impacto social real" },
+      { type: "p", text: "Outro grande destaque foi ver a tecnologia gerando impacto social real. Iniciativas do Google como o CEP digital para áreas rurais e favelas, que facilitam desde compras até chamadas de emergência, e o Project Green Light, que otimiza semáforos para reduzir emissões de CO2, provam que inovação e inteligência artificial precisam resolver problemas concretos, gerando valor para a sociedade." },
+      { type: "h2", text: "Sem dados estruturados, não há IA eficiente" },
+      { type: "p", text: "Porém, vale lembrar que não adianta falar em IA se não há dados estruturados. Ferramentas como o Gemini ajudam a gerir negócios e a analisar cenários complexos, mas a execução final e a estratégia continuam dependendo da visão humana." },
+      { type: "p", text: "A tecnologia avança rápido, mas o verdadeiro diferencial competitivo está na capacidade de transformar dados em ação e de fazer com que as empresas se adaptem continuamente às mudanças culturais, comportamentais e tecnológicas." }
+    ]
+  },
+
+  "web-summit-rio-tendencias-tecnologia-negocios": {
+    pt: [
+      { type: "p", text: "No mês passado, participei do Web Summit Rio e acompanhei de perto algumas das tendências que estão moldando tecnologia, cultura e negócios. Entre os principais aprendizados e percepções que ficaram desse evento, destaco cinco pontos." },
+      { type: "h2", text: "IA para produtividade e decisão" },
+      { type: "p", text: "A Inteligência Artificial está sendo amplamente utilizada para automação, ganho de produtividade e apoio à tomada de decisão. Ela potencializa profissionais que sabem fazer as perguntas certas, interpretar informações e transformá-las em ações estratégicas." },
+      { type: "h2", text: "Dados como diferencial competitivo" },
+      { type: "p", text: "Dados continuam sendo um dos maiores diferenciais competitivos das organizações. A capacidade de coletar, organizar e transformar dados em insights relevantes é o que permite gerar valor para os negócios, melhorar a experiência dos clientes e criar impactos positivos para a sociedade." },
+      { type: "h2", text: "Visão computacional e operações industriais" },
+      { type: "p", text: "O uso combinado de IA, visão computacional e análise de imagens e vídeos está transformando setores industriais. Soluções capazes de prever riscos operacionais e evitar acidentes graves já são realidade em diversos mercados. Enquanto no Brasil essas aplicações ainda começam a ganhar espaço, em ecossistemas mais maduros, como o Vale do Silício, as discussões já avançam fortemente em temas como IoT, sensores inteligentes e operações autônomas." },
+      { type: "h2", text: "Produtos centrados no usuário" },
+      { type: "p", text: "Construir produtos centrados no usuário continua sendo um fator decisivo para o sucesso: lançar rápido, validar ainda mais rápido, aprender continuamente e direcionar investimentos para aquilo que realmente gera valor para o cliente e para o negócio." },
+      { type: "h2", text: "Cultura e pertencimento" },
+      { type: "p", text: "Cultura e pertencimento são essenciais para fazer parte da estratégia empresarial. Criar ambientes onde colaboradores, parceiros e clientes se sintam ouvidos e representados impacta diretamente a inovação, a experiência do usuário e a construção de marcas mais fortes e relevantes." },
+      { type: "p", text: "Além do conteúdo das palestras, um dos pontos mais enriquecedores do evento foi a oportunidade de conversar com diretores, executivos, empreendedores e founders de diferentes segmentos. Essas trocas trouxeram perspectivas valiosas sobre estratégias de crescimento, inovação, adaptação e pivotação de negócios que estão surgindo para redefinir mercados e transformar a forma como empresas criam valor." }
+    ]
+  },
+
   "empresas-crescem-mercado-desacelera": {
     pt: [
       { type: "p", text: "Quando o mercado desacelera, a diferença entre empresas que encolhem e empresas que continuam crescendo raramente está no produto em si. Está em como a organização toma decisões, aloca recursos e mantém as pessoas certas motivadas quando o cenário fica mais difícil de prever." },
