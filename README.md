@@ -204,6 +204,12 @@ Isso funciona também artigo por artigo: você pode ter alguns com foto e
 outros ainda só com emoji, sem problema — é exatamente para isso que serve
 o sistema híbrido.
 
+As imagens dos artigos aparecem em 3 lugares diferentes, cada um com uma proporção própria (não é 4:5 em nenhum deles):
+
+Card de destaque (artigo em destaque, topo da lista)	4:3	(1200 × 900 px)
+Cards da grade (artigos recentes/relacionados)	16:10	(1200 × 750 px)
+Capa dentro da página do artigo (topo, banda larga)	21:9	(1400 × 600 px)
+
 ## © Rodapé
 
 O rodapé (presente nas 9 páginas: as 4 principais + os 5 artigos) traz:

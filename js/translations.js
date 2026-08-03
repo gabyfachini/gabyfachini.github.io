@@ -15,8 +15,7 @@ const TRANSLATIONS = {
 
     hero_eyebrow: "Oi, prazer!",
     hero_title: "Negócios, tecnologia e inovação",
-    hero_text1: "Sou Gabryella Facchini. Escrevo sobre estratégia, liderança, tecnologia, empreendedorismo, inteligência artificial, dados e o impacto da inovação nas empresas.",
-    hero_text2: "Este é um espaço para compartilhar análises, aprendizados, tendências e reflexões sobre como negócios e tecnologia estão transformando mercados, carreiras e a forma como construímos produtos.",
+    hero_text1: "Sou Gabryella Facchini. Escrevo sobre estratégia, liderança, tecnologia, empreendedorismo, inteligência artificial, dados e o impacto da inovação nas empresas. Este é um espaço para compartilhar análises, aprendizados, tendências e reflexões sobre como negócios e tecnologia estão transformando mercados, carreiras e a forma como construímos produtos.",
     hero_cta_primary: "Ver artigos",
     hero_cta_secondary: "Entre em contato",
 
@@ -111,8 +110,7 @@ const TRANSLATIONS = {
 
     hero_eyebrow: "Hi, nice to meet you!",
     hero_title: "Business, technology and innovation.",
-    hero_text1: "I'm Gabryella Facchini. I write about strategy, leadership, technology, entrepreneurship, artificial intelligence, data and the impact of innovation on companies.",
-    hero_text2: "This is a space to share analyses, learnings, trends and reflections on how business and technology are transforming markets, careers and the way we build products.",
+    hero_text1: "I'm Gabryella Facchini. I write about strategy, leadership, technology, entrepreneurship, artificial intelligence, data and the impact of innovation on companies. This is a space to share analyses, learnings, trends and reflections on how business and technology are transforming markets, careers and the way we build products.",
     hero_cta_primary: "View articles",
     hero_cta_secondary: "Get in touch",
 
@@ -206,8 +204,7 @@ const TRANSLATIONS = {
 
     hero_eyebrow: "¡Hola, un gusto!",
     hero_title: "Negocios, tecnología e innovación",
-    hero_text1: "Soy Gabryella Facchini. Escribo sobre estrategia, liderazgo, tecnología, emprendimiento, inteligencia artificial, datos y el impacto de la innovación en las empresas.",
-    hero_text2: "Este es un espacio para compartir análisis, aprendizajes, tendencias y reflexiones sobre cómo los negocios y la tecnología están transformando mercados, carreras y la forma en que construimos productos.",
+    hero_text1: "Soy Gabryella Facchini. Escribo sobre estrategia, liderazgo, tecnología, emprendimiento, inteligencia artificial, datos y el impacto de la innovación en las empresas. Este es un espacio para compartir análisis, aprendizajes, tendencias y reflexiones sobre cómo los negocios y la tecnología están transformando mercados, carreras y la forma en que construimos productos.",
     hero_cta_primary: "Ver artículos",
     hero_cta_secondary: "Contáctame",
 

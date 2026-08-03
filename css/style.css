@@ -277,7 +277,7 @@ p { color: var(--color-ink-soft); }
   gap: 64px;
   align-items: center;
 }
-.hero-copy { max-width: 62ch; }
+.hero-copy { max-width: 100%; }
 .hero-visual {
   position: relative;
 }
@@ -305,7 +305,7 @@ p { color: var(--color-ink-soft); }
   opacity: 0.85;
 }
 .hero-copy .eyebrow { font-size: 1.9rem; }
-.hero-copy p { max-width: 46ch; margin-bottom: 28px; }
+.hero-copy p { max-width: 100%; margin-bottom: 28px; text-align: justify; }
 .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
 
 /* ==========================================================================
@@ -490,7 +490,8 @@ p { color: var(--color-ink-soft); }
    ========================================================================== */
 .about-hero { padding: 72px 0 40px; }
 .about-hero .container { display: grid; grid-template-columns: 1fr; gap: 56px; align-items: center; }
-.about-hero .container > div { max-width: 68ch; }
+.about-hero .container > div { max-width: 100%; }
+.about-hero p { text-align: justify; }
 
 .skills-section { padding: 72px 0; background: var(--color-bg-alt); }
 .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -575,7 +576,7 @@ p { color: var(--color-ink-soft); }
 .footer-brand { display: flex; flex-direction: column; gap: 4px; }
 .footer-copy { font-size: 0.82rem; color: var(--color-ink-soft); margin: 0; }
 .footer-copy strong { color: var(--color-ink); }
-.footer-credit { font-size: 0.72rem; font-weight: 400; color: var(--color-ink); margin: 0; }
+.footer-credit { font-size: 0.72rem; font-weight: 400; color: var(--color-ink-soft); margin: 0; }
 .footer-links { display: flex; gap: 22px; list-style: none; padding: 0; margin: 0; }
 .footer-links a {
   font-size: 0.78rem; font-weight: 800; letter-spacing: 0.1em;
@@ -666,6 +667,7 @@ p { color: var(--color-ink-soft); }
   line-height: 1.85;
   color: var(--color-ink);
   opacity: 0.92;
+  text-align: justify;
 }
 
 .article-footer-nav {
